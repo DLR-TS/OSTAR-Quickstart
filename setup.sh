@@ -5,9 +5,9 @@
 # -- Get and compile OSMP-Service ----------------------------------------------
 # ==============================================================================
 
-OSMPSERVICE_VERSION=setlevel/v3.2.2
+OSMPSERVICE_VERSION=v3.5.0
 OSMPSERVICE_REPO=https://github.com/DLR-TS/OSMP-Service/archive/refs/tags/${OSMPSERVICE_VERSION}.tar.gz
-OSMPSERVICE_BASENAME=OSMP-Service-setlevel-v3.2.2
+OSMPSERVICE_BASENAME=OSMP-Service-v3.5.0
 OSMPSERVICE_INSTALL=OSMP-Service
 
 if [[ -d ${OSMPSERVICE_INSTALL} ]] ; then
@@ -34,9 +34,9 @@ fi
 # -- Get and compile Cosima ----------------------------------------------------
 # ==============================================================================
 
-COSIMA_VERSION=setlevel/v3.2.2
+COSIMA_VERSION=v3.5.0
 COSIMA_REPO=https://github.com/DLR-TS/CoSiMa/archive/refs/tags/${COSIMA_VERSION}.tar.gz
-COSIMA_BASENAME=CoSiMa-setlevel-v3.2.2
+COSIMA_BASENAME=CoSiMa-v3.5.0
 COSIMA_INSTALL=CoSiMa
 
 if [[ -d ${COSIMA_INSTALL} ]] ; then
@@ -89,11 +89,35 @@ else
 fi
 
 # ==============================================================================
-# -- Download models -----------------------------------------------------------
+# -- Download model -----------------------------------------------------------
 # ==============================================================================
 
-echo "TODO: Download models."
-echo "TODO: Create config for CoSiMa." /ostar_volume/config.yml
+OSMPMODEL_DIR=OSMPDummySensor
+OSMPMODEL_NAME=${OSMPMODEL_DIR}/OSMPDummySensor.fmu
+OSMPMODEL_VERSION=1.3.0
+
+if [[ -d ${OSMPMODEL_NAME} ]] ; then
+  echo "OSMP_Example_Model already installed."
+else
+  echo "Retrieving OSMP_Example_Model with submodules."
+
+  git clone https://github.com/OpenSimulationInterface/osi-sensor-model-packaging.git
+  
+  pushd osi-sensor-model-packaging >/dev/null
+  
+  git checkout v${OSMPMODEL_VERSION}
+  git submodule update --init
+  
+  cp ../Dockerfile Dockerfile
+  docker build -t ostar:osmp_model .
+  
+  popd >/dev/null
+  
+  docker create --name dummysensor ostar:osmp_model
+  docker cp dummysensor:/model/examples/build/${OSMPMODEL_NAME} ${OSMPMODEL_NAME}
+  docker rm -f dummysensor
+
+fi
 
 # ==============================================================================
 # -- Run container -------------------------------------------------------------
@@ -103,12 +127,12 @@ echo "TODO: Create config for CoSiMa." /ostar_volume/config.yml
 docker rm ostar_carla_osi_service ostar_fmu_1 ostar_cosima || true
 
 docker run -d --network host --name ostar_carla_osi_service ostar:carla-osi-service ./CARLA_OSI_Service &&
-docker run -d --network host --name ostar_fmu_1 ostar:osmp ./OSMPService 0.0.0.0:51426
+docker run -d --network host -p 51426:51425 --name ostar_fmu_1 ostar:osmp ./OSMPService
 
 #Wait for all services to start
 sleep 2
 
-docker run -d --network host -v `pwd`/ostar_volume:/ostar --name ostar_cosima ostar:cosima ./CoSimulationManager ostar/config.yml
+docker run -d --network host -v `pwd`/${OSMPMODEL_DIR}:/ostar --name ostar_cosima ostar:cosima ./CoSimulationManager ostar/config.yml
 
 #Run simulation for 30 seconds
 sleep 30
@@ -119,3 +143,6 @@ sleep 30
 
 docker stop ostar_carla_osi_service ostar_fmu_1 ostar_cosima
 #Not removed for inspection purposes. Will be removed at rerun in section "Run container".
+
+echo "Done"
+

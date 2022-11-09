@@ -7,7 +7,7 @@ Attention: Installation may take a while.
 
 ## Cosima, OSMP-Service and Carla-OSI-Service
 
-Connect [Carla Simulator](https://github.com/carla-simulator/carla) through the setlevel version [OSI3.2](https://gitlab.setlevel.de/deliverables/architecture/open-simulation-interface/-/tags/sl45%2Fv3.2.2) with OSMP capable FMUs.
+Connect [Carla Simulator](https://github.com/carla-simulator/carla) through OSI [OSI](https://github.com/OpenSimulationInterface/open-simulation-interface) with OSMP capable FMUs.
 
 ### [Cosima](https://github.com/DLR-TS/CoSiMa)
 
@@ -24,7 +24,7 @@ Satz
 ### Requirements
 
 System capable to run containers.
-System capable to run Carla with an adequate GPU.
+System capable to run Carla 0.9.13 with an adequate GPU.
 
 ---
 
