@@ -26,20 +26,22 @@ Connects to Carla C++ API and creates OSI messages requested by CoSiMa and inter
 System capable to run containers.
 System capable to run Carla 0.9.13 with an adequate GPU.
 
-###Installation
+### Installation
 
-Clone this repository.
+```sh
+git clone https://github.com/DLR-TS/OSTAR-Quickstart.git
+cd OSTAR-Quickstart
+chmod +x setup.sh run.sh
+./setup.sh
+```
 
-Run setup.sh
+If Carla is not running on the same machine change carla_host in OSMPDummy/config.yml\
+Start Carla simulator.\
+Spawn a hero vehicle in Carla, e.g. via manual_control.py
 
-If Carla is not running on the same machine, change it in the cosima configuration file.
-Change carla_host in OSMPDummy/config.yml
-
-Start Carla simulator.
-
-Spawn a hero vehicle in Carla. E.g. via manual_control.py
-
-Run run.sh
+```sh
+./run.sh
+```
 
 The simulation should change to stepmode.
 After 30 seconds the cosima should stop.
