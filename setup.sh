@@ -74,11 +74,11 @@ fi
 # -- Download model -----------------------------------------------------------
 # ==============================================================================
 
-OSMPMODEL_DIR=OSMPDummySensor
+OSMPMODEL_DIR=OSMPDummy
 OSMPMODEL_NAME=${OSMPMODEL_DIR}/OSMPDummySensor.fmu
 OSMPMODEL_VERSION=1.3.0
 
-if [[ -d ${OSMPMODEL_DIR} ]] ; then
+if [[ -f ${OSMPMODEL_NAME} ]] ; then
   echo "OSMP_Example_Model already installed."
 else
   echo "Retrieving OSMP_Example_Model with submodules."
@@ -100,31 +100,6 @@ else
   docker rm -f dummysensor
 
 fi
-
-# ==============================================================================
-# -- Run container -------------------------------------------------------------
-# ==============================================================================
-
-#Delete old containers if present
-docker rm ostar_carla_osi_service ostar_dummy_fmu ostar_cosima || true
-
-docker run -d --network host --name ostar_carla_osi_service ostar:carla-osi-service &&
-docker run -d -p 51426:51425 --name ostar_dummy_fmu ostar:osmpservice ./OSMPService
-
-#Wait for all services to start
-sleep 2
-
-docker run -d --network host -v `pwd`/${OSMPMODEL_DIR}:/ostar --name ostar_cosima ostar:cosima ./CoSimulationManager ostar/config.yml
-
-#Run simulation for 30 seconds
-sleep 30
-
-# ==============================================================================
-# -- Cleanup -------------------------------------------------------------------
-# ==============================================================================
-
-docker stop ostar_carla_osi_service ostar_dummy_fmu ostar_cosima
-#Not removed for inspection purposes. Will be removed at rerun in section "Run container".
 
 echo "Done"
 

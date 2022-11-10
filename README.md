@@ -11,20 +11,39 @@ Connect [Carla Simulator](https://github.com/carla-simulator/carla) through OSI 
 
 ### [Cosima](https://github.com/DLR-TS/CoSiMa)
 
-Satz
+Message broker for OSI messages between OSMP-Services and Carla-OSI-Service.
 
 ### [OSMP-Service](https://github.com/DLR-TS/OSMP-Service)
 
-Satz
+Loads OSMP FMU and communicates with it. One OSMP Service handles one FMU.
 
 ### [Carla-OSI-Service](https://github.com/DLR-TS/Carla-OSI-Service)
 
-Satz
+Connects to Carla C++ API and creates OSI messages requested by CoSiMa and interprets OSI TrafficUpdate to vehicles in Carla.
 
 ### Requirements
 
 System capable to run containers.
 System capable to run Carla 0.9.13 with an adequate GPU.
+
+###Installation
+
+Clone this repository.
+
+Run setup.sh
+
+If Carla is not running on the same machine, change it in the cosima configuration file.
+Change carla_host in OSMPDummy/config.yml
+
+Start Carla simulator.
+
+Spawn a hero vehicle in Carla. E.g. via manual_control.py
+
+Run run.sh
+
+The simulation should change to stepmode.
+After 30 seconds the cosima should stop.
+The Carla-OSI-Service resumes and unfreezes Carla after 5 seconds.
 
 ---
 
