@@ -7,7 +7,7 @@ Attention: Installation may take a while.
 
 ## Cosima, OSMP-Service and Carla-OSI-Service
 
-Connect [Carla Simulator](https://github.com/carla-simulator/carla) through OSI [OSI](https://github.com/OpenSimulationInterface/open-simulation-interface) with OSMP capable FMUs.
+Connect [Carla Simulator](https://github.com/carla-simulator/carla) through [OSI](https://github.com/OpenSimulationInterface/open-simulation-interface) with OSMP capable FMUs.
 
 ### [Cosima](https://github.com/DLR-TS/CoSiMa)
 
