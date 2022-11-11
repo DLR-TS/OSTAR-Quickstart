@@ -23,8 +23,8 @@ Connects to Carla C++ API and creates OSI messages requested by CoSiMa and inter
 
 ### Requirements
 
-System capable to run containers.
-System capable to run Carla 0.9.13 with an adequate GPU.
+System capable to run containers. \
+Installation of Carla 0.9.13.
 
 ### Installation
 
