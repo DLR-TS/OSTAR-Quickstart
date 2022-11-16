@@ -96,7 +96,7 @@ else
   popd >/dev/null
   
   docker create --name dummysensor ostar:osmp_model
-  docker cp dummysensor:/model/examples/build/${OSMPMODEL_NAME} ${OSMPMODEL_NAME}
+  docker cp dummysensor:/model/examples/build/OSMPDummySensor/OSMPDummySensor.fmu ${OSMPMODEL_NAME}
   docker rm -f dummysensor
 
 fi

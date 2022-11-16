@@ -1,4 +1,4 @@
-FROM ubuntu AS osmp_model_builder
+FROM ubuntu:22.04 AS osmp_model_builder
 MAINTAINER bjoern.bahn@dlr.de
 
 ENV DEBIAN_FRONTEND=noninteractive
