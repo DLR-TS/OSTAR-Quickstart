@@ -5,7 +5,7 @@
 # -- Get and compile OSMP-Service ----------------------------------------------
 # ==============================================================================
 
-OSMPSERVICE_VERSION=3.5.0
+OSMPSERVICE_VERSION=1.0
 OSMPSERVICE_REPO=https://github.com/DLR-TS/OSMP-Service.git
 OSMPSERVICE_INSTALL=OSMP-Service
 
@@ -28,7 +28,7 @@ fi
 # -- Get and compile Cosima ----------------------------------------------------
 # ==============================================================================
 
-COSIMA_VERSION=3.5.0
+COSIMA_VERSION=1.0
 COSIMA_REPO=https://github.com/DLR-TS/CoSiMa.git
 COSIMA_INSTALL=CoSiMa
 
@@ -51,7 +51,7 @@ fi
 # -- Get and compile Carla-OSI-Service -----------------------------------------
 # ==============================================================================
 
-CARLAOSISERVICE_VERSION=0.9.13-3.5.0
+CARLAOSISERVICE_VERSION=1.0
 CARLAOSISERVICE_REPO=https://github.com/DLR-TS/Carla-OSI-Service.git
 CARLAOSISERVICE_INSTALL=Carla-OSI-Service
 
