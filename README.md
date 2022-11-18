@@ -1,15 +1,15 @@
 # Quickstart for OSTAR
 
 OSTAR is a set of software tools for automotive simulation.
-This is an implementation of the setlevel generic simulation architecture.
+This is an implementation of the [SetLevel](https://setlevel.de/en) generic simulation architecture.
 
 Attention: Installation may take a while.
 
-## Cosima, OSMP-Service and Carla-OSI-Service
+## CoSiMa, OSMP-Service and Carla-OSI-Service
 
 Connect [Carla Simulator](https://github.com/carla-simulator/carla) through [OSI](https://github.com/OpenSimulationInterface/open-simulation-interface) with OSMP capable FMUs.
 
-### [Cosima](https://github.com/DLR-TS/CoSiMa)
+### [CoSiMa](https://github.com/DLR-TS/CoSiMa)
 
 Message broker for OSI messages between OSMP-Services and Carla-OSI-Service.
 
