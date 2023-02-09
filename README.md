@@ -3,6 +3,10 @@
 OSTAR is a set of software tools for automotive simulation.
 This is an implementation of the [SetLevel](https://setlevel.de/en) generic simulation architecture.
 
+OSTAR enables a simulation where vehicles in CARLA are controlled by external models.
+Theses models are packaged with FMI and use OSI messages for communication.
+The integration of theses models to CARLA is given by the GroundTruth, SensorView and TrafficUpdate messages.
+
 Attention: Installation may take a while.
 
 ## CoSiMa, OSMP-Service and Carla-OSI-Service
