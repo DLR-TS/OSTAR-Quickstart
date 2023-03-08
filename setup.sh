@@ -17,7 +17,7 @@ else
 
   pushd ${OSMPSERVICE_INSTALL} >/dev/null
 
-  git checkout ${OSMPSERVICE_VERSION}
+  # git checkout ${OSMPSERVICE_VERSION}
   docker build -t ostar:osmpservice .
 
   popd >/dev/null
@@ -40,7 +40,7 @@ else
 
   pushd ${COSIMA_INSTALL} >/dev/null
 
-  git checkout ${COSIMA_VERSION}
+  # git checkout ${COSIMA_VERSION}
   docker build -t ostar:cosima .
 
   popd >/dev/null
@@ -63,7 +63,7 @@ else
 
   pushd ${CARLAOSISERVICE_INSTALL} >/dev/null
 
-  git checkout ${CARLAOSISERVICE_VERSION}
+  # git checkout ${CARLAOSISERVICE_VERSION}
   docker build -t ostar:carla-osi-service .
 
   popd >/dev/null
