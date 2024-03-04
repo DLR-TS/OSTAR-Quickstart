@@ -1,0 +1,42 @@
+FROM ostar:cosima-18 as cosima
+FROM ostar:osmpservice-18 as osmpservice
+FROM ostar:carla-osi-service-18 as carla-osi-service
+FROM carlasim/carla:0.9.13 AS carla
+MAINTAINER bjoern.bahn@dlr.de
+
+USER carla
+RUN mkdir -p app/scenario_runner && mkdir -p ostar/default/ && cp -r PythonAPI/carla app/ 
+COPY --from=cosima CoSimulationManager ostar/
+COPY --from=osmpservice OSMPService ostar/
+COPY --from=carla-osi-service CARLA_OSI_Service ostar/
+COPY --from=carla-osi-service /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.80.0 /usr/lib/x86_64-linux-gnu/
+
+# Install scenario_runner
+USER root
+RUN rm /etc/apt/sources.list.d/cuda.list && rm /etc/apt/sources.list.d/nvidia-ml.list \
+ && apt-get update && apt-get install --no-install-recommends -y libpng16-16=1.6.34-1ubuntu0.18.04.2 \
+ libtiff5 libjpeg8=8c-2ubuntu8 build-essential=12.4ubuntu1 wget=1.19.4-1ubuntu2.2 git \
+ python3.6 python3.6-dev python3-pip libxerces-c-dev libprotobuf10 \
+ && rm -rf /var/lib/apt/lists/* 
+
+# Install python requirements
+RUN pip3 install setuptools==46.3.0 wheel==0.34.2 && pip3 install py_trees==0.8.3 networkx==2.2 pygame==1.9.6 \
+ six==1.14.0 numpy==1.18.4 psutil==5.7.0 shapely==1.7.0 xmlschema==1.1.3 ephem==3.7.6.0 tabulate==0.8.7 simple-watchdog-timer==0.1.1
+
+USER carla
+COPY OSTAR/scenario_runner app/scenario_runner
+COPY models/*.fmu /home/carla/ostar/default/
+
+COPY scenario/scenario.xosc /home/carla/ostar/default/scenario.xosc
+COPY scenario/map.xodr /home/carla/ostar/default/map.xodr
+COPY scenario/configSingleContainer.yml /home/carla/ostar/default/config.yml
+
+USER root
+RUN python3 -m easy_install --no-find-links --no-deps "$(find /home/carla/app/carla/ -iname '*py3.*.egg' )"
+
+ENV PYTHONPATH "${PYTHONPATH}:/home/carla/app/carla/agents:/home/carla/app/carla"
+USER carla
+
+COPY --chmod=0755 util/startScriptSingleContainer.sh startScriptSingleContainer.sh
+
+CMD /home/carla/startScriptSingleContainer.sh

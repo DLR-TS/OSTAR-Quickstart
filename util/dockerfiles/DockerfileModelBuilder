@@ -1,0 +1,8 @@
+FROM ubuntu:18.04 AS osmp_model_builder
+MAINTAINER bjoern.bahn@dlr.de
+
+ENV DEBIAN_FRONTEND=noninteractive MAKEFLAGS="-j$(nproc)"
+RUN apt-get update && apt-get install -y python3-pip build-essential git libprotobuf-dev protobuf-compiler && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip install --upgrade pip
+RUN pip3 install cmake==3.28.1 conan==1.59.0
