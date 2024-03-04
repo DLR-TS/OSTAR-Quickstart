@@ -1,4 +1,5 @@
 OSTAR/*
+!OSTAR/README.md
 models/*.fmu
 models/sl-1-*
 output
