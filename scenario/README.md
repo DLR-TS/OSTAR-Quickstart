@@ -9,7 +9,7 @@ scenario.xosc OpenSCENARIO scenario is loaded by [CARLA Scenario Runner](https:/
 The scenario runner contains changes to synchronise with OSTAR.
 configSingleContainerSimulation.yml is loaded by CoSiMa and contains the configuration of the FMUs.
 
-# Distributed Simulation
+## Distributed Simulation
 
 configDistributedSimulation.yml is loaded by CoSiMa and contains the configuration of the FMUs.
 A CARLA simulation must be running with a vehicle called **hero**.

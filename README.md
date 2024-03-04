@@ -9,8 +9,8 @@ The integration of theses models to CARLA is given by the GroundTruth, SensorVie
 
 This Quickstart contains two setups.
 
-* Singe Container Simulation (SCS)
-* Distributed Simulation (DS)
+* Singe Container Simulation (**SCS**)
+* Distributed Simulation (**DS**)
 
 ## CoSiMa, OSMP-Service and Carla-OSI-Service
 
@@ -42,7 +42,7 @@ System capable to run docker containers and a GPU to support CARLA.
 
 ## Installation
 
-Choose to build SCS or DS.
+In setup.sh you can choose to build **SCS** or **DS**.\
 Your choice is stored and can be changed by calling setup.sh again.
 
 ```sh
@@ -52,11 +52,10 @@ chmod +x *.sh
 ./setup.sh
 ```
 
-Only DS:\
+Only **DS**:\
 If Carla is not running on the same machine change carla_host in then change configDistributedSimulation.yml accordingly.\
 Start Carla simulator.\
-Spawn a hero vehicle in Carla.
-Via Carla examples like manual_control.py
+Spawn a hero vehicle in Carla e.g. with manual_control.py
 
 ## Run
 
@@ -66,10 +65,10 @@ The run.sh script calls the setup.sh script if no simulation choice is saved in 
 ./run.sh
 ```
 
-Only SCS:\
+Only **SCS**:\
 The simulation runs the complete scenario and will generate output in a new output directory.
 
-Only DS:\
+Only **DS**:\
 The simulation should change to stepmode.
 After 30 seconds the cosima stops.
 The Carla-OSI-Service resumes and unfreezes Carla after 5 seconds.
