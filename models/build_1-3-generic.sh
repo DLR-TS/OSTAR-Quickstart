@@ -25,7 +25,7 @@ else
   git checkout ${OSMPMODEL_VERSION}
   git submodule update --init
   
-  cp ../Dockerfile4Model Dockerfile
+  cp ../../util/dockerfiles/Dockerfile4Model Dockerfile
   docker build -t ostar:${OSMPMODEL_DIR} .
   
   popd >/dev/null
