@@ -3,7 +3,6 @@
   carla_port: 2000
   client_host: localhost
   client_port: 51425
-  delta: 0.1
   transaction_timeout: 100000
   do_step_timeout: 100000
   initialisation_timeout: 100000
@@ -29,7 +28,7 @@
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
-    - {interface_name: "OSMPSensorView", base_name: OSMPSensorView}
+    - {interface_name: "OSMPSensorView", base_name: OSMPSensorViewGroundTruth}
   output:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData[0]"}
   parameter:
@@ -45,12 +44,11 @@
   output:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData[1]"}
 - simulator: OSMP
-  model: ""
   host: localhost
   port: 51428
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
     - {interface_name: "OSMPSensorViewCamera", base_name: Sensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
-    - {interface_name: "OSMPSensorViewObjectMidRangeRadar", base_name: "OSMPSensorData[0]"}
-    - {interface_name: "OSMPSensorViewGeometricLidar", base_name: "OSMPSensorData[1]"}
+    - {interface_name: "OSMPSensorDataObjectMidRangeRadar", base_name: "OSMPSensorData[0]"}
+    - {interface_name: "OSMPSensorDataGeometricLidar", base_name: "OSMPSensorData[1]"}
