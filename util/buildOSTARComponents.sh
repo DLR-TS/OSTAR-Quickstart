@@ -34,7 +34,7 @@ fi
 # -- Get and compile Cosima ----------------------------------------------------
 # ==============================================================================
 
-COSIMA_VERSION=sync_srunner
+COSIMA_VERSION=dev
 COSIMA_REPO=https://github.com/DLR-TS/CoSiMa.git
 COSIMA_INSTALL=CoSiMa
 
