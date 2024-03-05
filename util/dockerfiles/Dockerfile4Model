@@ -1,5 +1,5 @@
 FROM ostar:model_builder
-MAINTAINER bjoern.bahn@dlr.de
+LABEL maintainer="bjoern.bahn@dlr.de"
 
 COPY . model
 RUN mkdir -p /model/cmake-build

@@ -2,7 +2,7 @@ FROM ostar:cosima-18 as cosima
 FROM ostar:osmpservice-18 as osmpservice
 FROM ostar:carla-osi-service-18 as carla-osi-service
 FROM carlasim/carla:0.9.13 AS carla
-MAINTAINER bjoern.bahn@dlr.de
+LABEL maintainer="bjoern.bahn@dlr.de"
 
 USER carla
 RUN mkdir -p app/scenario_runner && mkdir -p ostar/default/ && cp -r PythonAPI/carla app/ 
