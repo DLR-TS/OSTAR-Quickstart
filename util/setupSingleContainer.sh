@@ -53,5 +53,7 @@ popd >/dev/null
 # -- Build OSTAR Single Container ----------------------------------------------
 # ==============================================================================
 
+docker pull carlasim/carla:0.9.13
+
 docker buildx build -t ostar:single_container -f util/dockerfiles/DockerfileSingleContainer .
 

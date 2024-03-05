@@ -32,18 +32,20 @@ Can also spawn vehicles and sensors.
 
 ## Requirements SCS
 
+System capable to run docker containers and a GPU to support CARLA.\
+40 GB free storage
+
+## Requirements DS
+
 System capable to run docker containers.\
 Installation of Carla 0.9.13.\
 May be on a different computer.
 
-## Requirements DS
-
-System capable to run docker containers and a GPU to support CARLA.
-
 ## Installation
 
 In setup.sh you can choose to build **SCS** or **DS**.\
-Your choice is stored and can be changed by calling setup.sh again.
+Your choice is stored and can be changed by calling setup.sh again.\
+First installation of **SCS** takes up to one hour (with 50 Mbps download speed).
 
 ```sh
 git clone https://github.com/DLR-TS/OSTAR-Quickstart.git

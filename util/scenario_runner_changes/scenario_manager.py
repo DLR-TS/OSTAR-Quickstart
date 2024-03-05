@@ -192,13 +192,11 @@ class ScenarioManager(object):
         if self._sync_mode and self._running and self._watchdog.get_status():
             CarlaDataProvider.get_world().tick()
 
-        print(f"Send timestamp: {timestamp}")
+        print(f"TS: {timestamp}")
         self.client_socket.sendall(struct.pack('d', timestamp.delta_seconds))
-        print("Send timestamp!")
+        #print("Send timestamp!")
         data = self.client_socket.recv(8)
-        print(f"Received data: {data}")
-        #response = struct.unpack('d', data)[0]
-        #print(f"Received double: {response}")
+        #print(f"Received data: {data}")
 
     def get_running_status(self):
         """

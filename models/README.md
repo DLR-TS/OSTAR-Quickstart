@@ -14,20 +14,24 @@ Use the FMU names in the configuration file to load these models.
 ## SL 1-1 Reflection Based Radar Object Model
 
 :warning: **Currently sensor_view.radar_sensor_view.reflection.doppler_shift is not provided.**\
-FMU Name: ReflectionBasedRadarModel.fmu
+FMU Name: ReflectionBasedRadarModel.fmu\
+Version: v2.0
 
 ## SL 1-2 Reflection Based Lidar Object Model
 
 :warning: **Current version not compliant with official ASAM OSI**\
 There might be empty fields or additional fields in OSI messages.\
-FMU Name: ReflectionBasedLidarModel.fmu
+FMU Name: ReflectionBasedLidarModel.fmu\
+Version: v1.1
 
 ## SL 1-3 Object Based Generic Perception Object Model
 
-FMU Name: ObjectBasedGenericPerceptionObjectModel.fmu
+FMU Name: ObjectBasedGenericPerceptionObjectModel.fmu\
+Version: v2.0
 
 ## SL 1-4 Object Based Camera Object Model
 
-FMU Name: ObjectBasedCameraObjectModel.fmu
+FMU Name: ObjectBasedCameraObjectModel.fmu\
+Version: main
 
 Thanks to asc(s e.V. for their open source model libraray.

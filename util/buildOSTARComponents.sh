@@ -1,4 +1,5 @@
 #!/bin/bash
+docker build -f dockerfiles/Dockerfile4OstarCore -t ostar:core_builder .
 
 OSTAR_DIR=../OSTAR
 
