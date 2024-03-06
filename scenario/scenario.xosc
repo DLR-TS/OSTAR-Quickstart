@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <OpenSCENARIO>
-  <FileHeader author="ConcreteScenarioGenerator.py" date="2021-01-15T19:38:22" description="Variation_7" revMajor="1" revMinor="0" />
+  <FileHeader author="ConcreteScenarioGenerator.py" date="2021-01-15T19:38:22" description="Example Scenario" revMajor="1" revMinor="0" />
   <ParameterDeclarations/>
   <CatalogLocations/>
    <RoadNetwork>
@@ -212,9 +212,17 @@
             </Condition>
           </ConditionGroup>
         </StartTrigger>
+        <StopTrigger>
+          <ConditionGroup>
+            <Condition conditionEdge="none" delay="0" name="EndCondition in Story">
+              <ByValueCondition>
+                <SimulationTimeCondition rule="greaterThan" value="15" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StopTrigger>
       </Act>
     </Story>
     <StopTrigger/>
   </Storyboard>
 </OpenSCENARIO>
-
