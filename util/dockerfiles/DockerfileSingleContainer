@@ -18,17 +18,17 @@ RUN pip3 install setuptools==46.3.0 wheel==0.34.2 && pip3 install py_trees==0.8.
 
 USER carla
 RUN mkdir -p app/scenario_runner && mkdir -p ostar/default/ && cp -r PythonAPI/carla app/ 
-COPY --from=cosima CoSimulationManager ostar/
-COPY --from=osmpservice OSMPService ostar/
-COPY --from=carla-osi-service CARLA_OSI_Service ostar/
-COPY --from=carla-osi-service /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.80.0 /usr/lib/x86_64-linux-gnu/
-
-COPY OSTAR/scenario_runner app/scenario_runner
-COPY models/*.fmu /home/carla/ostar/default/
 
 COPY scenario/scenario.xosc /home/carla/ostar/default/scenario.xosc
 COPY scenario/map.xodr /home/carla/ostar/default/map.xodr
 COPY scenario/configSingleContainer.yml /home/carla/ostar/default/config.yml
+COPY OSTAR/scenario_runner app/scenario_runner
+COPY models/*.fmu /home/carla/ostar/default/
+
+COPY --from=cosima CoSimulationManager ostar/
+COPY --from=osmpservice OSMPService ostar/
+COPY --from=carla-osi-service CARLA_OSI_Service ostar/
+COPY --from=carla-osi-service /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.80.0 /usr/lib/x86_64-linux-gnu/
 
 USER root
 RUN python3 -m easy_install --no-find-links --no-deps "$(find /home/carla/app/carla/ -iname '*py3.*.egg' )"

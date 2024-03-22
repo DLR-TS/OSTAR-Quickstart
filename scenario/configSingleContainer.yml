@@ -28,19 +28,19 @@
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
-    - {interface_name: "OSMPSensorView", base_name: OSMPSensorViewGroundTruth}
+    - {interface_name: "OSMPSensorView", base_name: OSMPSensorView[0]}
   output:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData[0]"}
   parameter:
-    - {name: "profile" , value: "MidRange_Radar"}
+    - {name: "profile" , value: "Ibeo_LUX_2010"}
 - simulator: OSMP
-  model: "ReflectionBasedLidarModel.fmu"
+  model: "ReflectionBasedRadarModel.fmu"
   host: localhost
   port: 51427
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
-    - {interface_name: "OSMPSensorView", base_name: OSMPSensorViewGroundTruth}
+    - {interface_name: "OSMPSensorView", base_name: OSMPSensorView[1]}
   output:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData[1]"}
 - simulator: OSMP
@@ -50,5 +50,7 @@
   do_step_timeout: 5000
   input:
     - {interface_name: "OSMPSensorViewCamera", base_name: Sensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
-    - {interface_name: "OSMPSensorDataObjectMidRangeRadar", base_name: "OSMPSensorData[0]"}
-    - {interface_name: "OSMPSensorDataGeometricLidar", base_name: "OSMPSensorData[1]"}
+    - {interface_name: "OSMPSensorViewObjectIbeo_LUX_2010", base_name: "OSMPSensorView[0]"}
+    - {interface_name: "OSMPSensorDataObjectIbeo_LUX_2010", base_name: "OSMPSensorData[0]"}
+    - {interface_name: "OSMPSensorViewGeometricRadar", base_name: "OSMPSensorView[1]"}
+    - {interface_name: "OSMPSensorDataGeometricRadar", base_name: "OSMPSensorData[1]"}

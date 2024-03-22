@@ -13,13 +13,12 @@ Use the FMU names in the configuration file to load these models.
 
 ## SL 1-1 Reflection Based Radar Object Model
 
-:warning: **Currently sensor_view.radar_sensor_view.reflection.doppler_shift is not provided.**\
 FMU Name: ReflectionBasedRadarModel.fmu\
 Version: v2.0
 
 ## SL 1-2 Reflection Based Lidar Object Model
 
-:warning: **Current version not compliant with official ASAM OSI**\
+:warning: **Current version not compliant with official ASAM OSI. Model not available for simulation**\
 There might be empty fields or additional fields in OSI messages.\
 FMU Name: ReflectionBasedLidarModel.fmu\
 Version: v1.1

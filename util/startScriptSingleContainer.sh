@@ -10,8 +10,8 @@ cp -n /home/carla/ostar/default/* /home/carla/input/
 #./CarlaUE4.sh -nosound &
 ./CarlaUE4.sh -nosound -RenderOffScreen &
 
-echo "Starting Carla takes a while... Script will continue in 15 seconds"
-sleep 15s
+echo "Starting Carla takes a while... Script will continue in 30 seconds"
+sleep 30s #30 seconds is the safer option, 15 seconds works most of the time
 
 #Load openDRIVE map
 python3 PythonAPI/util/config.py -x /home/carla/input/map.xodr
