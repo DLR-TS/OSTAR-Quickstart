@@ -1,6 +1,6 @@
-OSMP-Service/
-CoSiMa/
-Carla-OSI-Service/
-osi-sensor-model-packaging/
-OSMPDummy/OSMPDummySensor.fmu
-
+OSTAR/*
+!OSTAR/README.md
+models/*.fmu
+models/sl-1-*
+output
+setup.txt

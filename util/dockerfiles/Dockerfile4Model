@@ -1,0 +1,9 @@
+FROM ostar:model_builder
+LABEL maintainer="bjoern.bahn@dlr.de"
+
+COPY . model
+RUN mkdir -p /model/cmake-build
+WORKDIR /model/cmake-build
+
+RUN cmake ..
+RUN cmake --build .
