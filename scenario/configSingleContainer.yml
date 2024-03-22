@@ -28,7 +28,7 @@
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
-    - {interface_name: "OSMPSensorView", base_name: OSMPSensorView[0]}
+    - {interface_name: "OSMPSensorView", base_name: "OSMPSensorView[0]"}
   output:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData[0]"}
   parameter:
@@ -40,7 +40,7 @@
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
-    - {interface_name: "OSMPSensorView", base_name: OSMPSensorView[1]}
+    - {interface_name: "OSMPSensorView", base_name: "OSMPSensorView[1]"}
   output:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData[1]"}
 - simulator: OSMP
