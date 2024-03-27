@@ -1,10 +1,14 @@
 #!/bin/bash
 
+#Extract and unzip imported files from the directory.
+cd /data/inputs; tar -xvf $(find /data/inputs/ -name "0")
+
 #Create input directory if not used by mounted volume
 mkdir -p input/
 
 #Write default files if not provided by mounted volume
-cp -n /home/carla/ostar/default/* /home/carla/input/
+find /data/inputs/ -type d -name "scenario" | while read dir; do
+cp -r "$dir"/* /home/carla/input/
 
 #Start CARLA
 #./CarlaUE4.sh -nosound &
@@ -30,14 +34,10 @@ python3 app/scenario_runner/scenario_runner.py --sync --openscenario /home/carla
 
 sleep 1s
 
-#Create input directory if not override by mounted volume
-mkdir -p /home/carla/output/images
-
 #Copy simulation results in output directory
-mv *.png /home/carla/output/images
-mv *.osi /home/carla/output/
+mv *.png /data/outputs/
+mv *.osi /data/outputs/
 
 sleep 1s
 
 echo "OSTAR simulation done"
-
