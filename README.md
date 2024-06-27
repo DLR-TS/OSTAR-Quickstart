@@ -44,6 +44,8 @@ Check out the OSTAR documentation at [OSTAR Quickstart](https://github.com/DLR-T
 
 # Contacts
 
-bjoern.bahn@dlr.de frank.baumgarten@dlr.de opensource-ts@dlr.de
+bjoern.bahn@dlr.de
+frank.baumgarten@dlr.de
+opensource-ts@dlr.de
 
 This software was originally developed as part of [SetLevel](https://setlevel.de/).

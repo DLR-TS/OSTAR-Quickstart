@@ -38,7 +38,7 @@ delta: simulation stepsize in seconds\
 transaction_timeout: timeout for gRPC getter and setter calls\
 do_step_timeout: timeout for gRPC Do_Step calls\
 initialisation_timeout: timeout for gRPC call for initialisation of Carla OSI Service\
-additional_parameters: [See here](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Carla_OSI_Service_Configuration.md)
+additional_parameters: [See here](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Carla_OSI_Service_Configuration.md)\
 sensor_view_config: spawn sensors in Carla\
 base_name: Identifier of the sensor, can be used by OSMP Service input base_name\
 parent_name: _world_ for static sensor, otherwise name of vehicle to attach the sensor accordingly\

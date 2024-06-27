@@ -2,7 +2,7 @@
 
 OSTAR contains three main components: CoSiMa, OSMP-Service and Carla-OSI-Service.
 It connects [CARLA Simulator](https://carla.org) through [OSI](https://www.asam.net/standards/detail/osi) with OSMP capable FMUs.
-The configuration is done via [YAML configuration file](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md)
+The configuration is done via [YAML configuration file](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md)\
 [Current support for each OSI message](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/OSI_Field_Implementation.md)
 
 ## [CoSiMa](https://github.com/DLR-TS/CoSiMa)
