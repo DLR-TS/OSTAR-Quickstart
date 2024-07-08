@@ -10,7 +10,7 @@ Load Town10HD in Carla before starting the simulation.
 
 Uses 1x CoSiMa, 1x Carla-OSI-Service, 1x OSMP Service.
 
-<img src="../../img/01.jpg" alt="drawing" width="50%"/>
+<img src="../docu/img/01.jpg" alt="drawing" width="50%"/>
 
 ## 02 Town10HD Replay Trajectories with sensor
 
