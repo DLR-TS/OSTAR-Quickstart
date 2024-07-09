@@ -10,19 +10,22 @@ Examples which are possible can be found [here](https://github.com/DLR-TS/OSTAR-
 ## [CoSiMa](https://github.com/DLR-TS/CoSiMa)
 
 Message broker for OSI messages between OSMP-Services and Carla-OSI-Service.
+The CoSiMa is always the last component to be started as it connects to the various parts.
+The [YAML configuration file](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md) is given via command line parameter.
 
 ## [OSMP-Service](https://github.com/DLR-TS/OSMP-Service)
 
 Loads OSMP FMU and communicates with it.
 One OSMP-Service handles one FMU.
 The OSMP-Service supports trajectory files as input and creates OSI TrafficUpdate messages from it.
-It is also possible to configure the OSMP-Service as a logger to write OSI trace files.
-
+It is also possible to configure the OSMP-Service as a logger to write OSI trace files.\
+The configuration is set by CoSiMa [YAML configuration file](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md)
 
 ## [Carla-OSI-Service](https://github.com/DLR-TS/Carla-OSI-Service)
 
 Connects to Carla C++ API and creates OSI messages requested by CoSiMa and interprets OSI TrafficUpdate to vehicles in Carla.
-Can also spawn vehicles and sensors.
+Can also spawn vehicles and sensors.\
+The configuration is set by CoSiMa [YAML configuration file](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md)
 
 # Distributed Simulation 
 If Carla is not running on the same machine change carla_host in then change configDistributedSimulation.yml accordingly.\
