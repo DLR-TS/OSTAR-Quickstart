@@ -85,7 +85,7 @@ do_step_timeout: timeout for gRPC Do_Step calls\
 input and output: list of inputs/outputs\
   interface_name: name of variable in modeldescription.xml of FMU, needs to be the same as OSI message name, can contain In and Out as a prefix\
   base_name: name for matching the input and output inside CoSiMa\
-parameter: list of parameters for configuration of FMU. Parameters are set before the simulation starts and can not be changed during the simulation run.\
+parameter: list of parameters for configuration of FMU. Parameters are set before the simulation starts and can not be changed during the simulation run.
 
 ### Proxy Adapter
 
@@ -104,6 +104,6 @@ The receiving side works the same as the sending side.
 ```
 
 host and port: host and port of proxy simulator\
-input and output: list of inputs/outputs. If several messages are to be transmitted the order in this file will be the order the messages will be send to the proxy simulator.\
+input and output: list of inputs/outputs. If several messages are to be transmitted the order in this file will be the order the messages will be send to the proxy simulator.
   interface_name: name is irrelevant\
   base_name: name for matching the input and output inside CoSiMa
