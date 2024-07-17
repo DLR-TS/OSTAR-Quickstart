@@ -17,13 +17,9 @@ RUN pip3 install setuptools==46.3.0 wheel==0.34.2 && pip3 install py_trees==0.8.
  six==1.14.0 numpy==1.18.4 psutil==5.7.0 shapely==1.7.0 xmlschema==1.1.3 ephem==3.7.6.0 tabulate==0.8.7 simple-watchdog-timer==0.1.1
 
 USER carla
-RUN mkdir -p app/scenario_runner && mkdir -p ostar/default/ && cp -r PythonAPI/carla app/ 
+RUN mkdir -p app/scenario_runner && cp -r PythonAPI/carla app/
 
-COPY scenario/scenario.xosc /home/carla/ostar/default/scenario.xosc
-COPY scenario/map.xodr /home/carla/ostar/default/map.xodr
-COPY scenario/configSingleContainer.yml /home/carla/ostar/default/config.yml
 COPY OSTAR/scenario_runner app/scenario_runner
-COPY models/*.fmu /home/carla/ostar/default/
 
 COPY --from=cosima CoSimulationManager ostar/
 COPY --from=osmpservice OSMPService ostar/

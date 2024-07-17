@@ -7,6 +7,8 @@ The configuration is done via [YAML configuration file](https://github.com/DLR-T
 
 Examples which are possible can be found [here](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/examples)
 
+To change the configuration of the simulation alter the files in the [scenario directory](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/scenario/README.md)
+
 ## [CoSiMa](https://github.com/DLR-TS/CoSiMa)
 
 Message broker for OSI messages between OSMP-Services and Carla-OSI-Service.

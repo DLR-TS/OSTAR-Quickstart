@@ -9,6 +9,9 @@ scenario.xosc OpenSCENARIO scenario is loaded by [CARLA Scenario Runner](https:/
 The scenario runner contains changes to synchronise with OSTAR.
 configSingleContainerSimulation.yml is loaded by CoSiMa and contains the configuration of the FMUs.
 
+The included FMUs will be copied into this directory when running the run.sh in the root directory.
+Then this directory is mounted by the container.
+
 ## Distributed Simulation
 
 configDistributedSimulation.yml is loaded by CoSiMa and contains the configuration of the FMUs.

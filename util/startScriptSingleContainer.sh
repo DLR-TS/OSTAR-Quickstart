@@ -3,9 +3,6 @@
 #Create input directory if not used by mounted volume
 mkdir -p input/
 
-#Write default files if not provided by mounted volume
-cp -n /home/carla/ostar/default/* /home/carla/input/
-
 #Start CARLA
 #./CarlaUE4.sh -nosound &
 ./CarlaUE4.sh -nosound -RenderOffScreen &
@@ -21,7 +18,7 @@ python3 PythonAPI/util/config.py -x /home/carla/input/map.xodr
 ./ostar/OSMPService 51426 &
 ./ostar/OSMPService 51427 &
 ./ostar/OSMPService 51428 &
-./ostar/CoSimulationManager -sr /home/carla/input/config.yml &
+./ostar/CoSimulationManager -sr /home/carla/input/configSingleContainer.yml &
 
 sleep 1s
 
