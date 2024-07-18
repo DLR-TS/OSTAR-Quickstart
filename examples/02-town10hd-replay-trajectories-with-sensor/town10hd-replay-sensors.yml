@@ -1,25 +1,22 @@
 - simulator: CARLA
-  carla_host: 192.168.99.1
+  carla_host: localhost
   carla_port: 2000
-  client_host: localhost
-  client_port: 51425
+  autostart: true
   delta: 0.01
   transaction_timeout: 100000
   do_step_timeout: 100000
   initialisation_timeout: 100000
-  additional_parameters: "-replaySpawnHeight 0.1 -ego 0 --resumeafter 5"
+  additional_parameters: "-replaySpawnHeight 0.1 -v -ego 0 --resumeafter 5"
 - simulator: OSMP
   model: "town10hd-replay.csv" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
-  host: localhost
-  port: 51426
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   output:
     - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
 - simulator: OSMP
   model: "ObjectBasedGenericPerceptionObjectModel.fmu" #Sensor FMU
-  host: localhost
-  port: 51427
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
@@ -30,8 +27,7 @@
     - {name: "profile" , value: "Ibeo_LUX_2010"} #Parameters are set before the simulation starts to configure the FMU
 - simulator: OSMP
   model: "" #If model is empty, OSMP Service will write logs depending on the configured input or output.
-  host: localhost
-  port: 51428
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:

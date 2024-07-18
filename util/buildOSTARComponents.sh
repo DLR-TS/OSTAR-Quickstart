@@ -7,7 +7,7 @@ OSTAR_DIR=../OSTAR
 # -- Get and compile OSMP-Service ----------------------------------------------
 # ==============================================================================
 
-OSMPSERVICE_VERSION=5c0c2dd9df320c5626cd7f7fb2d00fd18eeec84f
+OSMPSERVICE_VERSION=6f67ff5702a1d861e224fc2e7e5ce1d90c45df39
 OSMPSERVICE_REPO=https://github.com/DLR-TS/OSMP-Service.git
 OSMPSERVICE_INSTALL=OSMP-Service
 
@@ -34,7 +34,7 @@ fi
 # -- Get and compile Cosima ----------------------------------------------------
 # ==============================================================================
 
-COSIMA_VERSION=d54d399b4ec0d475c45cd7b530c03e97a37d274a
+COSIMA_VERSION=0bac4a7fa01a0a8d7a5b241b16d1c9f05b761e31
 COSIMA_REPO=https://github.com/DLR-TS/CoSiMa.git
 COSIMA_INSTALL=CoSiMa
 
@@ -61,7 +61,7 @@ fi
 # -- Get and compile Carla-OSI-Service -----------------------------------------
 # ==============================================================================
 
-CARLAOSISERVICE_VERSION=d99896d9a65cf7ab595f2436be0a1f6f06861564
+CARLAOSISERVICE_VERSION=ae3fe3050a8b163e24245fac127853b5de6a16a5
 CARLAOSISERVICE_REPO=https://github.com/DLR-TS/Carla-OSI-Service.git
 CARLAOSISERVICE_INSTALL=Carla-OSI-Service
 

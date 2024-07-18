@@ -1,8 +1,7 @@
 - simulator: CARLA
-  carla_host: 192.168.99.1
+  carla_host: localhost
   carla_port: 2000
-  client_host: localhost
-  client_port: 51425
+  autostart: true
   delta: 0.01
   transaction_timeout: 100000
   do_step_timeout: 100000
@@ -23,16 +22,14 @@
     field_of_view_horizontal: 90
 - simulator: OSMP
   model: "town10hd-replay.csv" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
-  host: localhost
-  port: 51426
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   output:
     - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
 - simulator: OSMP
   model: "" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
-  host: localhost
-  port: 51427
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:

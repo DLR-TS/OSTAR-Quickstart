@@ -16,7 +16,7 @@ for n in range(timesteps + 1):
         timestamp_milliseconds = n * 10
         x = (float(car[4]) + float(car[5] - car[4]) * n / timesteps) * 0.01
         y = -(float(car[6]) + float(car[7] - car[6]) * n / timesteps) * 0.01
-        data.append([timestamp_milliseconds * 1000, car[0], car[1], car[2], car[3], '', x, y , 0, 0, 0, 0, 0, 0, 0, car[8], car[9]])
+        data.append([timestamp_milliseconds, car[0], car[1], car[2], car[3], '', x, y , 0, 0, 0, 0, 0, 0, 0, car[8], car[9]])
 
 with open('town10hd-replay.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
