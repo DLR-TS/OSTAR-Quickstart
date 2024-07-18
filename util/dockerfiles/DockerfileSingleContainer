@@ -21,9 +21,10 @@ RUN mkdir -p app/scenario_runner && cp -r PythonAPI/carla app/
 
 COPY OSTAR/scenario_runner app/scenario_runner
 
-COPY --from=cosima CoSimulationManager ostar/
-COPY --from=osmpservice OSMPService ostar/
-COPY --from=carla-osi-service CARLA_OSI_Service ostar/
+COPY --from=cosima CoSimulationManager /home/carla/
+COPY --from=cosima /usr/lib/libsumocpp.so /usr/lib/
+COPY --from=osmpservice OSMPService /home/carla/
+COPY --from=carla-osi-service CARLA_OSI_Service /home/carla/
 COPY --from=carla-osi-service /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.80.0 /usr/lib/x86_64-linux-gnu/
 
 USER root

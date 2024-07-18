@@ -2,16 +2,14 @@
   delta: 0.05
 - simulator: OSMP #OSMP-Service
   model: town10hd-replay.csv
-  host: localhost
-  port: 51424
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   output:
     - {interface_name: OSMPTrafficUpdate, base_name: OSMPTrafficUpdate}
 - simulator: OSMP #OSMP-Service
   model: 
-  host: localhost
-  port: 51425
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:

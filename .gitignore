@@ -1,7 +1,7 @@
 OSTAR/*
 !OSTAR/README.md
 models/*.fmu
-scenario/*.fmu
 models/sl-1-*
+input
 output
 setup.txt

@@ -1,8 +1,7 @@
 - simulator: CARLA
   carla_host: 192.168.99.1
   carla_port: 2000
-  client_host: localhost
-  client_port: 51425
+  autostart: true
   delta: 0.01
   transaction_timeout: 100000
   do_step_timeout: 100000
@@ -10,16 +9,14 @@
   additional_parameters: "-replaySpawnHeight 0.1 -ego 0 --resumeafter 5"
 - simulator: OSMP
   model: "town10hd-replay.csv" #reader service
-  host: localhost
-  port: 51426
+  autostart: true
   transaction_timeout: 50000
   do_step_timeout: 50000
   output:
     - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
 - simulator: OSMP
   model: sl-1-1-reflection-based-radar-object-model.fmu #model service
-  host: localhost
-  port: 51427
+  autostart: true
   transaction_timeout: 50000
   do_step_timeout: 50000
   input:
@@ -28,8 +25,7 @@
     - {interface_name: "OSMPSensorData", base_name: OSMPSensorData}
 - simulator: OSMP
   model: "" #writer service
-  host: localhost
-  port: 51428
+  autostart: true
   transaction_timeout: 50000
   do_step_timeout: 50000
   input:

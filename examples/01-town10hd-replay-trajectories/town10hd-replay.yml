@@ -1,8 +1,7 @@
 - simulator: CARLA
   carla_host: localhost
   carla_port: 2000
-  client_host: localhost
-  client_port: 51425
+  autostart: true
   delta: 0.01
   transaction_timeout: 100000
   do_step_timeout: 100000
@@ -10,8 +9,7 @@
   additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 0.1 -ego 0 -v --resumeafter 5"
 - simulator: OSMP
   model: "town10hd-replay.csv" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
-  host: localhost
-  port: 51426
+  autostart: true
   transaction_timeout: 5000
   do_step_timeout: 5000
   output:
