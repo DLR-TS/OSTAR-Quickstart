@@ -108,7 +108,7 @@ input and output: list of inputs/outputs. If several messages are to be transmit
   interface_name: name is irrelevant\
   base_name: name for matching the input and output inside CoSiMa
 
-##Specials
+## Specials
 
 base_name: **"OSMPSensorView[x]"** for sensor input if automatic sensor generation by the FMI SensorViewConfigRequest shall be used\
 base_name: **"OSMPSelfDefinedSensorX"** The name of a sensor defined by the yml configuration file must begin with OSMP\
