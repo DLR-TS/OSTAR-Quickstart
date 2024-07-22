@@ -1,5 +1,5 @@
 - simulator: PROXY
-  host: 192.168.1.2
+  host: 1.2.3.4
   port: 8083
   input:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData"}

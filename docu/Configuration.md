@@ -22,7 +22,7 @@ The dummy can be used to run a simulation without CARLA.
   initialisation_timeout: 60000
   additional_parameters: ""
   sensor_view_config:
-  - base_name: Sensor1
+  - base_name: OSMPSensor1
     parent_name: hero
     sensor_type: camera
     camera_sensor_mounting_position: {x: 0, y: 0, z: 0, roll: 0, pitch: 0, yaw: 0}
@@ -40,7 +40,7 @@ do_step_timeout: timeout for gRPC Do_Step calls\
 initialisation_timeout: timeout for gRPC call for initialisation of Carla OSI Service\
 additional_parameters: [See here](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Carla_OSI_Service_Configuration.md)\
 sensor_view_config: spawn sensors in Carla\
-base_name: Identifier of the sensor, can be used by OSMP Service input base_name\
+base_name: Identifier of the sensor, can be used by OSMP Service input base_name. **Currently needs to start with OSMP**\
 parent_name: _world_ for static sensor, otherwise name of vehicle to attach the sensor accordingly\
 sensor_type: currently supported are camera, lidar, radar and ultrasonic\
 prefixed_fmu_variable_name: identifier of sensor to connect this sensor output to a specific FMI input\
@@ -74,7 +74,7 @@ delta: simulation stepsize in seconds
   output:
       - {interface_name: OSMPSensorData, base_name: OSMPSensorData}
   parameter:
-      - {name: "profile" , value: "Ibeo_LUX_2010"}
+      - {name: "profile", value: "Ibeo_LUX_2010"}
 ```
 
 model: path where FMU is located, if not found by CoSiMa the OSMP Service will try to load the file directly. It can also be an OSI trace file as an input.\ 
@@ -100,10 +100,17 @@ The receiving side works the same as the sending side.
   input:
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData"}
   output:
-    - {interface_name: "OSMPTrafficUpdate" , base_name: "OSMPTrafficUpdate"}
+    - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
 ```
 
 host and port: host and port of proxy simulator\
 input and output: list of inputs/outputs. If several messages are to be transmitted the order in this file will be the order the messages will be send to the proxy simulator.
   interface_name: name is irrelevant\
   base_name: name for matching the input and output inside CoSiMa
+
+##Specials
+
+base_name: **"OSMPSensorView[x]"** for sensor input if automatic sensor generation by the FMI SensorViewConfigRequest shall be used\
+base_name: **"OSMPSelfDefinedSensorX"** The name of a sensor defined by the yml configuration file must begin with OSMP\
+base_name: **"OSMPSensorViewGroundTruth"** creates a default SensorViewMessage with a complete GroundTruth without any special sensorview
+

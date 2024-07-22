@@ -6,7 +6,34 @@
   transaction_timeout: 100000
   do_step_timeout: 100000
   initialisation_timeout: 100000
-  additional_parameters: "-replaySpawnHeight 0.1 -v -ego 0 --resumeafter 5"
+  additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 5 -ego 0 --resumeafter 5"
+  sensor_view_config:
+  - base_name: OSMPSensor0 # Name must start with OSMP or OSI
+    parent_name: 0
+    sensor_type: camera
+    sensor_mounting_position:
+      x: -5
+      y: 0
+      z: 2
+      roll: 0
+      pitch: 0
+      yaw: 0
+    number_of_pixels_horizontal: 854
+    number_of_pixels_vertical: 480
+    field_of_view_horizontal: 90
+  - base_name: OSMPSensor1 # Name must start with OSMP or OSI
+    parent_name: 1 # mounted on vehicle 1
+    sensor_type: camera
+    sensor_mounting_position:
+      x: 2.5
+      y: 0
+      z: 0.5
+      roll: 0
+      pitch: 0
+      yaw: 0
+    number_of_pixels_horizontal: 854
+    number_of_pixels_vertical: 480
+    field_of_view_horizontal: 90
 - simulator: OSMP
   model: "town10hd-replay.csv" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
   autostart: true
@@ -33,3 +60,5 @@
   input:
     - {interface_name: "OSMPSensorView", base_name: "OSMPSensorViewGroundTruth"}
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData"}
+    - {interface_name: "OSMPSensorViewCameraCar0", base_name: OSMPSensor0} # Sensor0 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
+    - {interface_name: "OSMPSensorViewCameraCar1", base_name: OSMPSensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.

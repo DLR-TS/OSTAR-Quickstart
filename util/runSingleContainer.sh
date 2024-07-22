@@ -30,7 +30,11 @@ case $answer in
   3 ) cp examples/03-osmp-openloop-without-carla/* input/
     ;;
   4 ) cp examples/04-osmp-proxy/* input/
-    ;;
+    echo "Example 04 needs an program to communicate OSI via TCP."
+    echo "Currently no demo simulation is available."
+    echo ""
+    echo "Protocol like https://github.com/OpenSimulationInterface/osi-sensor-model-packaging"
+    exit;;
   5 ) cp examples/05-geometrical-sensor/* input/
     ;;
   6 ) cp examples/06-geometrical-sensor-model/* input/

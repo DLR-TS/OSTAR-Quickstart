@@ -23,7 +23,7 @@ if [ -f "$YAML_FILE" ]; then
   if [ -f "$XOSC_FILE" ]; then
     ./CoSimulationManager -sr $YAML_FILE &
   else
-    ./CoSimulationManager -v $YAML_FILE
+    ./CoSimulationManager $YAML_FILE
   fi
 else
   echo "No .yml file found in input directory."

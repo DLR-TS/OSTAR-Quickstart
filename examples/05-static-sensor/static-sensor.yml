@@ -6,14 +6,15 @@
   transaction_timeout: 100000
   do_step_timeout: 100000
   initialisation_timeout: 100000
-  additional_parameters: "-replaySpawnHeight 0.1 -ego 0 --resumeafter 5"
+  additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 0.1 --resumeafter 5"
   sensor_view_config:
-  - base_name: Sensor1
+  - base_name: OSMPSensor1
+    parent_name: world # Use world as a static parent
     sensor_type: camera
     sensor_mounting_position:
-      x: -5
-      y: 0
-      z: 2
+      x: -31
+      y: -135
+      z: 5
       roll: 0
       pitch: 0
       yaw: 0
@@ -33,4 +34,4 @@
   transaction_timeout: 5000
   do_step_timeout: 5000
   input:
-    - {interface_name: "OSMPSensorView", base_name: Sensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
+    - {interface_name: "OSMPSensorViewStaticCamera", base_name: OSMPSensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
