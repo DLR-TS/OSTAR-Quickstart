@@ -25,5 +25,6 @@ elif [[ "$configuration" == "DistributedSimulation" ]]; then
 fi
 
 echo "OSTAR Simulation complete!"
+echo "Check the output directory to see results."
 
 
