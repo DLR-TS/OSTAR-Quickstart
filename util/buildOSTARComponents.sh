@@ -61,7 +61,7 @@ fi
 # -- Get and compile Carla-OSI-Service -----------------------------------------
 # ==============================================================================
 
-CARLAOSISERVICE_VERSION=ae3fe3050a8b163e24245fac127853b5de6a16a5
+CARLAOSISERVICE_VERSION=48083bb3091970c28fef1937c3f49909e31221f9
 CARLAOSISERVICE_REPO=https://github.com/DLR-TS/Carla-OSI-Service.git
 CARLAOSISERVICE_INSTALL=Carla-OSI-Service
 

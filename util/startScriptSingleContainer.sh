@@ -3,10 +3,27 @@
 XODR_FILE=$(find /home/carla/input/ -type f -name "*.xodr" | head -n 1)
 XOSC_FILE=$(find /home/carla/input/ -type f -name "*.xosc" | head -n 1)
 YAML_FILE=$(find /home/carla/input/ -type f -name "*.yml" | head -n 1)
+VISUAL=false
+VERBOSE=false
+
+while [[ "$#" -gt 0 ]]; do
+  if [[ $1 = "--verbose" ]]; then
+    VERBOSE=true
+  fi
+  if [[ $1 = "--visual" ]]; then
+    VISUAL=true
+  fi
+  shift
+done
+
+echo "XODR_FILE: $XODR_FILE XOSC_FILE: $XOSC_FILE YAML_FILE: $YAML_FILE VISUAL: $VISUAL VERBOSE: $VERBOSE"
 
 #Start CARLA
-./CarlaUE4.sh -nosound &
-#./CarlaUE4.sh -nosound -RenderOffScreen &
+if $VISUAL; then
+  ./CarlaUE4.sh -nosound &
+else
+  ./CarlaUE4.sh -nosound -RenderOffScreen &
+fi
 
 echo "Starting Carla takes a while... Script will continue in 30 seconds"
 sleep 30s #30 seconds is the safer option, 15 seconds works most of the time
@@ -18,12 +35,20 @@ if [ -f "$XODR_FILE" ]; then
 fi
 
 #Start OSTAR CoSimulationManager
-if [ -f "$YAML_FILE" ]; then
+if [[ -f "$YAML_FILE" ]]; then
   echo "Load YML file: $YAML_FILE"
-  if [ -f "$XOSC_FILE" ]; then
-    ./CoSimulationManager -sr $YAML_FILE &
+  if [[ -f "$XOSC_FILE" ]]; then
+    if $VERBOSE; then
+      ./CoSimulationManager -sr -v $YAML_FILE &
+    else
+      ./CoSimulationManager -sr $YAML_FILE &
+    fi
   else
-    ./CoSimulationManager $YAML_FILE
+    if $VERBOSE; then
+      ./CoSimulationManager -v $YAML_FILE
+    else
+      ./CoSimulationManager $YAML_FILE
+    fi
   fi
 else
   echo "No .yml file found in input directory."
@@ -34,9 +59,8 @@ sleep 1s
 
 #Start CARLA Scenario Runner
 
-if [ -f "$XOSC_FILE" ]; then
+if [[ -f "$XOSC_FILE" ]]; then
   echo "Load openSCENARIO file: $XOSC_FILE"
-  #python3 app/scenario_runner/scenario_runner.py --sync --openscenario /home/carla/input/scenario.xosc
   python3 app/scenario_runner/scenario_runner.py --sync --openscenario $XOSC_FILE
 fi
 

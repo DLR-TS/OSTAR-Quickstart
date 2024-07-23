@@ -35,4 +35,5 @@ USER carla
 
 COPY --chmod=0755 util/startScriptSingleContainer.sh startScriptSingleContainer.sh
 
-CMD /home/carla/startScriptSingleContainer.sh
+ENTRYPOINT ["/home/carla/startScriptSingleContainer.sh"]
+CMD [""]
