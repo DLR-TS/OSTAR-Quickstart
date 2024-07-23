@@ -1,5 +1,4 @@
 #!/bin/bash
-#Prepare input
 rm -r input
 mkdir input
 input_abs_path=$(realpath input)
@@ -7,53 +6,69 @@ input_abs_path=$(realpath input)
 echo "Copy FMU models into input directory!"
 cp models/*.fmu input/
 
-echo "Choose between Examples:"
-echo "0: OpenDRIVE and OpenSCENARIO (default)"
-echo "1: Town10 Replay trajectories"
-echo "2: Town10 Replay trajectories with sensors"
-echo "3: OSTAR open-loop without CARLA"
-echo "4: OSMP Proxy (not working)"
-echo "5: Town10 Geometrical Sensor"
-echo "6: Town10 Geometrical Sensor model"
-echo ""
-echo "Enter 0 to 6 to continue, h for more info, e for exit"
+SCENARIO_BY_PARAMETER=false
+SCENARIO_NUMBER=-1
+ALL_PARAMETERS="$@"
 
-read -p "(0/1/2/3/4/5/6/h/e) " answer
+while [[ "$#" -gt 0 ]]; do
+  if [[ $1 =~ [0-7]$ ]]; then
+    SCENARIO_NUMBER=$1
+    echo "Automatic scenario selection: $SCENARIO_NUMBER"
+  fi
+  shift
+done
 
-case $answer in
-  0 ) cp examples/00-opendrive-openscenario/* input/
+if [[ $SCENARIO_NUMBER = -1 ]]; then
+  echo "Choose between Examples:"
+  echo "0: OpenDRIVE and OpenSCENARIO (default)"
+  echo "1: Replay trajectories"
+  echo "2: Replay trajectories with sensors"
+  echo "3: OSTAR open-loop without CARLA"
+  echo "4: OSMP Proxy (no working example)"
+  echo "5: Static Sensor"
+  echo "6: Geometrical Sensor model"
+  echo "7: SUMO example"
+  echo ""
+  echo "Enter 0 to 7 to continue, h for more info, e for exit"
+
+  read -p "(0/1/2/3/4/5/6/7/h/e) " SCENARIO_NUMBER
+fi
+
+case $SCENARIO_NUMBER in
+  0) cp examples/00-opendrive-openscenario/* input/
     ;;
-  1 ) cp examples/01-town10hd-replay-trajectories/* input/
+  1) cp examples/01-town10hd-replay-trajectories/* input/
     ;;
-  2 ) cp examples/02-town10hd-replay-trajectories-with-sensor/* input/
+  2) cp examples/02-town10hd-replay-trajectories-with-sensor/* input/
     ;;
-  3 ) cp examples/03-osmp-openloop-without-carla/* input/
+  3) cp examples/03-osmp-openloop-without-carla/* input/
     ;;
-  4 ) cp examples/04-osmp-proxy/* input/
+  4) cp examples/04-osmp-proxy/* input/
     echo "Example 04 needs an program to communicate OSI via TCP."
     echo "Currently no demo simulation is available."
     echo ""
     echo "Protocol like https://github.com/OpenSimulationInterface/osi-sensor-model-packaging"
     exit;;
-  5 ) cp examples/05-geometrical-sensor/* input/
+  5) cp examples/05-geometrical-sensor/* input/
     ;;
-  6 ) cp examples/06-geometrical-sensor-model/* input/
+  6) cp examples/06-geometrical-sensor-model/* input/
     ;;
-  h ) echo "Check out the examples directory for more information about each scenario."
+  7) cp examples/07-sumo/* input/
+    ;;
+  h) echo "Check out the examples directory for more information about each scenario."
     exit;;
-  * ) exit;;
+  *) exit;;
 esac
 
-#Prepate output
-mkdir output
+mkdir -p output
 output_abs_path=$(realpath output)
 
 #Delete old containers if present
 if docker ps -a | grep "ostar-single-container"; then
-	docker rm ostar-single-container || true
+  docker rm ostar-single-container || true
 fi
 
-docker run --privileged --net=host --gpus all --name ostar-single-container -e DISPLAY=$DISPLAY -it --mount type=bind,source="$input_abs_path",target=/home/carla/input --mount type=bind,source="$output_abs_path",target=/home/carla/output ostar:single_container
+docker run --privileged --net=host --gpus all --name ostar-single-container -e DISPLAY=$DISPLAY -it --mount type=bind,source="$input_abs_path",target=/home/carla/input --mount type=bind,source="$output_abs_path",target=/home/carla/output ostar:single_container $ALL_PARAMETERS
 
 echo "Done. See simulation output in output directory"
 

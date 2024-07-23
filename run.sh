@@ -12,15 +12,20 @@ echo "Run OSTAR"
 
 read -r configuration < ${CONFIGURATION_FILENAME}
 
-if [[ "$configuration" == "SingleContainer" ]]; then
+if [[ "$configuration" == "SingleContainerDockerhub" ]]; then
 
 	echo "Run Single Container"
-	/bin/bash util/runSingleContainer.sh;
+	/bin/bash util/runSingleContainer.sh "$@";
+
+elif [[ "$configuration" == "SingleContainer" ]]; then
+
+	echo "Run Single Container"
+	/bin/bash util/runSingleContainer.sh "$@";
 
 elif [[ "$configuration" == "DistributedSimulation" ]]; then
 
 	echo "Run Single Container"
-	/bin/bash util/runDistributedSimulation.sh;
+	/bin/bash util/runDistributedSimulation.sh "$@";
 
 fi
 
