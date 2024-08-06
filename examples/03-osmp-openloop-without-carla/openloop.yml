@@ -3,8 +3,8 @@
 - simulator: OSMP #OSMP-Service
   model: town10hd-replay.csv
   autostart: true
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 10
+  do_step_timeout: 10
   output:
     - {interface_name: OSMPTrafficUpdate, base_name: OSMPTrafficUpdate}
 - simulator: OSMP #OSMP-Service

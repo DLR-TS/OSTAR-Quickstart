@@ -3,9 +3,9 @@
   carla_port: 2000
   autostart: true
   delta: 0.01
-  transaction_timeout: 100000
-  do_step_timeout: 100000
-  initialisation_timeout: 100000
+  transaction_timeout: 10
+  do_step_timeout: 10
+  initialisation_timeout: 100
   additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 0.1 --resumeafter 5"
   sensor_view_config:
   - base_name: OSMPSensor1
