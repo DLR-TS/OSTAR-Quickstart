@@ -71,7 +71,7 @@ fi
 # -- Get and compile Cosima ----------------------------------------------------
 # ==============================================================================
 
-COSIMA_VERSION=0bac4a7fa01a0a8d7a5b241b16d1c9f05b761e31
+COSIMA_VERSION=87134834ac6a7ac9986bf860311434a0f384853c
 COSIMA_REPO=https://github.com/DLR-TS/CoSiMa.git
 COSIMA_INSTALL=CoSiMa
 COSIMA_IMAGE_NAME=ostar:cosima-18
@@ -112,7 +112,7 @@ fi
 # -- Get and compile Carla-OSI-Service -----------------------------------------
 # ==============================================================================
 
-CARLAOSISERVICE_VERSION=f4820270db5c45df9ef95e6e2a70c4ca70f07c44
+CARLAOSISERVICE_VERSION=0ff3e3b12cd295c502dc1654189282e79feac104
 CARLAOSISERVICE_REPO=https://github.com/DLR-TS/Carla-OSI-Service.git
 CARLAOSISERVICE_INSTALL=Carla-OSI-Service
 CARLAOSISERVICE_IMAGE_NAME=ostar:carla-osi-service-18
