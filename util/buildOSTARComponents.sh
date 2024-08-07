@@ -71,7 +71,7 @@ fi
 # -- Get and compile Cosima ----------------------------------------------------
 # ==============================================================================
 
-COSIMA_VERSION=87134834ac6a7ac9986bf860311434a0f384853c
+COSIMA_VERSION=3c6228ec211bf7693d7104902e2818fb83278691
 COSIMA_REPO=https://github.com/DLR-TS/CoSiMa.git
 COSIMA_INSTALL=CoSiMa
 COSIMA_IMAGE_NAME=ostar:cosima-18
