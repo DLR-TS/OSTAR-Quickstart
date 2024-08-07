@@ -4,9 +4,9 @@
   client_host: localhost
   client_port: 51425
   delta: 0.03
-  transaction_timeout: 30000
-  do_step_timeout: 30000
-  initialisation_timeout: 60000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
   additional_parameters: "-ego hero --resumeafter 5"
   - base_name: Sensor1
     parent_name: default:hero / world
@@ -25,8 +25,8 @@
   model: /models/ObjectBasedGenericPerceptionObjectModel.fmu
   host: localhost
   port: 51426
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
   input:
       - {interface_name: OSMPSensorView, base_name: OSMPSensorViewGroundTruth}
   output:
@@ -35,8 +35,8 @@
   model: ""
   host: localhost
   port: 51427
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
   input:
     - {interface_name: "OSMPSensorViewCamera", base_name: Sensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
     - {interface_name: OSMPSensorData, base_name: OSMPSensorData}

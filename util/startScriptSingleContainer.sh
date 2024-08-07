@@ -33,8 +33,7 @@ if [ -f "$XODR_FILE" ]; then
   echo "Load openDRIVE file: $XODR_FILE"
   python3 PythonAPI/util/config.py -x $XODR_FILE
 fi
-#temp
-sleep 20s
+
 #Start OSTAR CoSimulationManager
 if [[ -f "$YAML_FILE" ]]; then
   echo "Load YML file: $YAML_FILE"
