@@ -49,7 +49,7 @@ case $SCENARIO_NUMBER in
     echo ""
     echo "Protocol like https://github.com/OpenSimulationInterface/osi-sensor-model-packaging"
     exit;;
-  5) cp examples/05-geometrical-sensor/* input/
+  5) cp examples/05-static-sensor/* input/
     ;;
   6) cp examples/06-geometrical-sensor-model/* input/
     ;;

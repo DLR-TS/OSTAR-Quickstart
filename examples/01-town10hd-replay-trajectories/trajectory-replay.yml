@@ -3,9 +3,9 @@
   carla_port: 2000
   autostart: true
   delta: 0.01
-  transaction_timeout: 10
-  do_step_timeout: 10
-  initialisation_timeout: 100
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
   additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 0.1 -ego 0 -v --resumeafter 5"
 - simulator: OSMP
   model: "town10hd-replay.csv" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.

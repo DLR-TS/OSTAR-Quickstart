@@ -3,9 +3,10 @@
   carla_host: localhost
   carla_port: 2000
   delta: 0.1
-  transaction_timeout: 10
-  do_step_timeout: 10
-  initialisation_timeout: 100
+  debugTimerSeconds: 0.1
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
   additional_parameters: "-ego 1337 -replay -replayMapOffsets 110 105 -replaySpawnHeight 0.5 --resumeafter 5" # look up Configuration.md in Carla-OSI-Service for more options
   sensor_view_config:
   - base_name: OSMPSensor1 # Name must start with OSMP or OSI
@@ -27,8 +28,8 @@
     - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
 - simulator: OSMP
   autostart: true
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
   input:
     - {interface_name: "OSMPSensorViewCamera", base_name: OSMPSensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
 

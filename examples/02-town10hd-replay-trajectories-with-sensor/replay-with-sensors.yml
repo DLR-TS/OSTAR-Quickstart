@@ -3,10 +3,10 @@
   carla_port: 2000
   autostart: true
   delta: 0.01
-  transaction_timeout: 10
-  do_step_timeout: 10
-  initialisation_timeout: 100
-  additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 5 -ego 0 --resumeafter 5"
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
+  additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 0.1 -ego 0 --resumeafter 5"
   sensor_view_config:
   - base_name: OSMPSensor0 # Name must start with OSMP or OSI
     parent_name: 0
@@ -37,15 +37,15 @@
 - simulator: OSMP
   model: "town10hd-replay.csv" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
   autostart: true
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
   output:
     - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
 - simulator: OSMP
   model: "ObjectBasedGenericPerceptionObjectModel.fmu" #Sensor FMU
   autostart: true
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
   input:
     - {interface_name: "OSMPSensorView", base_name: "OSMPSensorViewGroundTruth"} #Special value for generic SensorView with all GroundTruth information
   output:
@@ -55,8 +55,8 @@
 - simulator: OSMP
   model: "" #If model is empty, OSMP Service will write logs depending on the configured input or output.
   autostart: true
-  transaction_timeout: 5000
-  do_step_timeout: 5000
+  transaction_timeout: 1000
+  do_step_timeout: 1000
   input:
     - {interface_name: "OSMPSensorView", base_name: "OSMPSensorViewGroundTruth"}
     - {interface_name: "OSMPSensorData", base_name: "OSMPSensorData"}

@@ -2,9 +2,9 @@
   autostart: true
   carla_host: localhost
   carla_port: 2000
-  transaction_timeout: 10
-  do_step_timeout: 10
-  initialisation_timeout: 100
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
   additional_parameters: "-ego hero -sr --resumeafter 5" # look up Configuration.md in Carla-OSI-Service for more options
   sensor_view_config:
   - base_name: OSMPSensor1 # Name must start with OSMP or OSI
