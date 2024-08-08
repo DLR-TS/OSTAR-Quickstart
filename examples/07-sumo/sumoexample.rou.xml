@@ -3,9 +3,9 @@
 	<vType accel="0.8" decel="4.5" id="CarEgo" length="4.0" maxSpeed="50.0" sigma="0.0"/>
 	<route id="down2up" edges="-183349849 -183349852"/>
 	<route id="up2down" edges="183349852 183349849"/>
-	<route id="right2left" edges="183349851#2 183349851#1 183349851#0 -183349848"/>
-	<route id="left2right" edges="183349848 -183349851#0 -183349851#1 -183349851#2"/>
-	<route id="up2right" edges="183349852 -183349851#0 -183349851#1 -183349851#2"/>
+	<route id="right2left" edges="183349851#2 -183349848"/>
+	<route id="left2right" edges="183349848 -183349851#0"/>
+	<route id="up2right" edges="183349852 -183349851#0"/>
 
 	<flow id="flow1" begin="0" end="30" number="3" route="down2up" type="Car"/>
 	<flow id="flow2" begin="0" end="60" number="2" route="up2down" type="Car"/>
