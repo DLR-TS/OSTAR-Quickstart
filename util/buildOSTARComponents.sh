@@ -2,26 +2,27 @@
 docker build -f dockerfiles/Dockerfile4OstarCore -t ostar:core_builder .
 
 check_commit() {
-    local commit=$1
-    current_commit=$(git rev-parse HEAD)
-    if [ "$current_commit" == "$commit" ]; then
-        echo "Correct commit checked out"
-        return 0
-    else
-        echo "Wrong commit"
-        return 1
-    fi
+  local commit=$1
+  current_commit=$(git rev-parse HEAD)
+  if [ "$current_commit" == "$commit" ]; then
+    echo "Correct commit checked out"
+    #With local changes, build it manually with the corresponding image name.
+    return 0
+  else
+    echo "Wrong commit"
+    return 1
+  fi
 }
 
 check_image() {
-    local image_name=$1
-    if docker images --format '{{.Repository}}:{{.Tag}}' | grep -Eq "^${image_name}$"; then
-        echo "Image exist: $image_name"
-        return 0
-    else
-        echo "Image does not exist: $image_name"
-        return 1
-    fi
+  local image_name=$1
+  if docker images --format '{{.Repository}}:{{.Tag}}' | grep -Eq "^${image_name}$"; then
+    echo "Image exist: $image_name"
+    return 0
+  else
+    echo "Image does not exist: $image_name"
+    return 1
+  fi
 }
 
 OSTAR_DIR=../OSTAR
@@ -50,15 +51,18 @@ if [[ -d ${OSTAR_DIR}/${OSMPSERVICE_INSTALL} ]] ; then
   if [[ "$commit_status" -eq 0 ]] && [[ "$image_status" -eq 0 ]]; then
     echo "Skip build of OSMP-Service"
     OMSPSERVICE_BUILD=false
+  else
+    echo "Remove old version of OSMP-Service."
+    rm -rf ${OSTAR_DIR}/${OSMPSERVICE_INSTALL}
   fi
-else
-  echo "Retrieving OSMP-Service."
-  pushd ${OSTAR_DIR} > /dev/null
-  git clone ${OSMPSERVICE_REPO}
-  popd >/dev/null
 fi
 
 if $OMSPSERVICE_BUILD; then
+  echo "Retrieving OSMP-Service."
+  pushd ${OSTAR_DIR} > /dev/null
+  git clone ${OSMPSERVICE_REPO}
+
+  popd >/dev/null
   pushd ${OSTAR_DIR}/${OSMPSERVICE_INSTALL} >/dev/null
 
   git checkout ${OSMPSERVICE_VERSION}
@@ -91,15 +95,18 @@ if [[ -d ${OSTAR_DIR}/${COSIMA_INSTALL} ]] ; then
   if [[ "$commit_status" -eq 0 ]] && [[ "$image_status" -eq 0 ]]; then
     echo "Skip build of CoSiMa"
     COSIMA_BUILD=false
+  else
+    echo "Remove old version of CoSiMa."
+    rm -rf ${OSTAR_DIR}/${COSIMA_INSTALL}
   fi
-else
-  echo "Retrieving CoSiMa."
-  pushd ${OSTAR_DIR} > /dev/null
-  git clone ${COSIMA_REPO}
-  popd >/dev/null
 fi
 
 if $COSIMA_BUILD; then
+  echo "Retrieving CoSiMa."
+  pushd ${OSTAR_DIR} > /dev/null
+  git clone ${COSIMA_REPO}
+
+  popd >/dev/null
   pushd ${OSTAR_DIR}/${COSIMA_INSTALL} >/dev/null
 
   git checkout ${COSIMA_VERSION}
@@ -112,7 +119,7 @@ fi
 # -- Get and compile Carla-OSI-Service -----------------------------------------
 # ==============================================================================
 
-CARLAOSISERVICE_VERSION=0ff3e3b12cd295c502dc1654189282e79feac104
+CARLAOSISERVICE_VERSION=f5dcbb5be97698f0a509c454f6ad764f9b947bab
 CARLAOSISERVICE_REPO=https://github.com/DLR-TS/Carla-OSI-Service.git
 CARLAOSISERVICE_INSTALL=Carla-OSI-Service
 CARLAOSISERVICE_IMAGE_NAME=ostar:carla-osi-service-18
@@ -130,17 +137,20 @@ if [[ -d ${OSTAR_DIR}/${CARLAOSISERVICE_INSTALL} ]] ; then
   check_image $CARLAOSISERVICE_IMAGE_NAME
   image_status=$?
   if [[ "$commit_status" -eq 0 ]] && [[ "$image_status" -eq 0 ]]; then
-    echo "Skip build of CoSiMa"
+    echo "Skip build of Carla-OSI-Service"
     CARLAOSISERVICE_BUILD=false
+  else
+    echo "Remove old version of Carla-OSI-Service."
+    rm -rf ${OSTAR_DIR}/${CARLAOSISERVICE_INSTALL}
   fi
-else
-  echo "Retrieving Carla-OSI-Service."
-  pushd ${OSTAR_DIR} > /dev/null
-  git clone ${CARLAOSISERVICE_REPO}
-  popd >/dev/null
 fi
 
 if $CARLAOSISERVICE_BUILD; then
+  echo "Retrieving Carla-OSI-Service."
+  pushd ${OSTAR_DIR} > /dev/null
+  git clone ${CARLAOSISERVICE_REPO}
+
+  popd >/dev/null
   pushd ${OSTAR_DIR}/${CARLAOSISERVICE_INSTALL} >/dev/null
 
   git checkout ${CARLAOSISERVICE_VERSION}
