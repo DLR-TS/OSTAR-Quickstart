@@ -10,7 +10,7 @@ The scenario contains a config defined third person camera sensor on vehicle, an
 Replays trajectories of one ego vehicle and three other vehicles.
 The trajectories are loaded by one OSMP-Service.
 
-<img src="../docu/img/01.jpg" alt="drawing" width="50%"/>
+<img src="../docu/img/01.jpg" alt="3rd person view" width="50%"/>
 
 ## 02 Replay Trajectories with sensor
 
@@ -55,7 +55,9 @@ To get the sensors spawned by the FMU itself you need to use OSMPSensorView[x] t
 The [SUMO](https://sumo.dlr.de/docs/index.html) integration uses SUMO to create a scenario and surrounding traffic.
 Files for SUMO are sumoexample.net.xml, sumoexample.rou.xml, sumoexample.settings.xml and sumoexample.sumoconfig.\
 To create a SUMO net file from the opendrive file use option **--offset.disable-normalization true** in netconvert.
-Otherwise use **-replayMapOffsets \<X\> \<Y\>** as additional_parameters in configuration file [Link](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md) and fill in the netOffset from the sumo net file manually.
+Otherwise use **-replayMapOffsets \<X\> \<Y\>** as additional_parameters in [configuration](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md) and fill in the netOffset from the sumo net file manually.
 
 Note that the stepsize needs to be the same in both configurations.
+
+<img src="../docu/img/sumo_ego.png" alt="sumo ego view" width="50%"/>
 
