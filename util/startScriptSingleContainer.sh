@@ -34,6 +34,11 @@ if [ -f "$XODR_FILE" ]; then
   python3 PythonAPI/util/config.py -x $XODR_FILE
 fi
 
+if $VISUAL; then
+  echo "Sleep 5 seconds to allow manual change of view direction on new map."
+  sleep 5s
+fi
+
 #Start OSTAR CoSimulationManager
 if [[ -f "$YAML_FILE" ]]; then
   echo "Load YML file: $YAML_FILE"

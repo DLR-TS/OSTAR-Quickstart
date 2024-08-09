@@ -7,7 +7,7 @@
   transaction_timeout: 1000
   do_step_timeout: 1000
   initialisation_timeout: 10000
-  additional_parameters: "-ego 1337 -replay -replayMapOffsets 110 105 -replaySpawnHeight 0.5 --resumeafter 5" # look up Configuration.md in Carla-OSI-Service for more options
+  additional_parameters: "-ego 1337 -replay -replaySpawnHeight 0.5 --resumeafter 5" # look up Configuration.md in Carla-OSI-Service for more options
   sensor_view_config:
   - base_name: OSMPSensor1 # Name must start with OSMP or OSI
     parent_name: 1337 # needs to be a number for mapping reasons with OSI message types!

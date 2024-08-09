@@ -52,5 +52,9 @@ To get the sensors spawned by the FMU itself you need to use OSMPSensorView[x] t
 
 ## 07 Sumo integration
 
-Example 7 will contain a basic sumo scenario.
+The [SUMO](https://sumo.dlr.de/docs/index.html) integration uses SUMO to create a scenario and surrounding traffic.
+Files for SUMO are sumoexample.net.xml, sumoexample.rou.xml, sumoexample.settings.xml and sumoexample.sumoconfig.
+To create a sumo net file from the opendrive file use option **--offset.disable-normalization true** in netconvert.
+Otherwise use **-replayMapOffsets <X> <Y>** as additional_parameters in configuration file [Link](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md) and fill in the netOffset from the sumo net file manually.
+Note that the stepsize needs to be the same in both configurations.
 
