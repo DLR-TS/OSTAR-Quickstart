@@ -50,10 +50,11 @@ OSTAR creates and configures a radar sensor based on a given FMU, like the [open
 Camera and Lidar sensors work similar to this example.
 To get the sensors spawned by the FMU itself you need to use OSMPSensorView[x] to get the corresponding sensor input.
 
-## 07 Sumo integration
+## 07 SUMO integration
 
-The [SUMO](https://sumo.dlr.de/docs/index.html) integration uses SUMO to create a scenario and surrounding traffic.
-Files for SUMO are sumoexample.net.xml, sumoexample.rou.xml, sumoexample.settings.xml and sumoexample.sumoconfig.\
+The [SUMO](https://eclipse.dev/sumo/) integration uses SUMO to create a scenario and surrounding traffic.
+This example contains the following SUMO files: sumoexample.net.xml, sumoexample.rou.xml, sumoexample.settings.xml and sumoexample.sumoconfig.
+
 To create a SUMO net file from the opendrive file use option **--offset.disable-normalization true** in netconvert.
 Otherwise use **-replayMapOffsets \<X\> \<Y\>** as additional_parameters in [configuration](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/Configuration.md) and fill in the netOffset from the sumo net file manually.
 

@@ -15,12 +15,12 @@ read -r configuration < ${CONFIGURATION_FILENAME}
 if [[ "$configuration" == "SingleContainerDockerhub" ]]; then
 
 	echo "Run Single Container"
-	/bin/bash util/runSingleContainer.sh "$@";
+	/bin/bash util/runSingleContainer.sh "$@" "SingleContainerDockerhub";
 
-elif [[ "$configuration" == "SingleContainer" ]]; then
+elif [[ "$configuration" == "SingleContainerLocal" ]]; then
 
 	echo "Run Single Container"
-	/bin/bash util/runSingleContainer.sh "$@";
+	/bin/bash util/runSingleContainer.sh "$@" "SingleContainerLocal";
 
 elif [[ "$configuration" == "DistributedSimulation" ]]; then
 

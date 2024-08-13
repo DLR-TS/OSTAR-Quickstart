@@ -98,7 +98,7 @@ parameter: list of parameters for configuration of FMU. Parameters are set befor
 
 model: path to SUMO configuration file.\
 input and output: list of inputs/outputs\
-  interface\_name: name of variable in modeldescription.xml of FMU, needs to be the same as OSI message name, can contain In and Out as a prefix\
+  interface\_name: name of variable\
   base\_name: name for matching the input and output inside CoSiMa\
 
 ### Proxy Adapter
