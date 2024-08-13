@@ -9,14 +9,23 @@ cp models/*.fmu input/
 SCENARIO_BY_PARAMETER=false
 SCENARIO_NUMBER=-1
 ALL_PARAMETERS="$@"
+IMAGE_NAME=""
 
 while [[ "$#" -gt 0 ]]; do
   if [[ $1 =~ [0-7]$ ]]; then
     SCENARIO_NUMBER=$1
     echo "Automatic scenario selection: $SCENARIO_NUMBER"
   fi
+  if [[ $1 = SingleContainerLocal ]];  then
+    IMAGE_NAME="ostar:single_container"
+  fi
+  if [[ $1 = SingleContainerDockerhub ]];  then
+    IMAGE_NAME="bjoernbahndlr/ostar:1.1"
+  fi
   shift
 done
+
+echo "Use image: $IMAGE_NAME "
 
 if [[ $SCENARIO_NUMBER = -1 ]]; then
   echo "Choose between Examples:"
@@ -68,7 +77,7 @@ if docker ps -a | grep "ostar-single-container"; then
   docker rm ostar-single-container || true
 fi
 
-docker run --privileged --net=host --gpus all --name ostar-single-container -e DISPLAY=$DISPLAY -it --mount type=bind,source="$input_abs_path",target=/home/carla/input --mount type=bind,source="$output_abs_path",target=/home/carla/output ostar:single_container $ALL_PARAMETERS
+docker run --privileged --net=host --gpus all --name ostar-single-container -e DISPLAY=$DISPLAY -it --mount type=bind,source="$input_abs_path",target=/home/carla/input --mount type=bind,source="$output_abs_path",target=/home/carla/output $IMAGE_NAME $ALL_PARAMETERS
 
 echo "Done. See simulation output in output directory"
 

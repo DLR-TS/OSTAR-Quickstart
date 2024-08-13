@@ -9,9 +9,9 @@ DOCKER_DISTRIBUTED=false
 while [[ "$#" -gt 0 ]]; do
 	echo $1
 	case $1 in
-		-docker) DOCKER_DOWNLOAD=true ;;
-		-build) DOCKER_BUILD=true ;;
-		-distributed) DOCKER_DISTRIBUTED=true ;;
+		--docker) DOCKER_DOWNLOAD=true ;;
+		--build) DOCKER_BUILD=true ;;
+		--distributed) DOCKER_DISTRIBUTED=true ;;
 	esac
 	shift
 done
@@ -41,7 +41,7 @@ case $answer in
 	0) echo "SingleContainerDockerhub" > setup.txt
 		/bin/bash util/downloadSingleContainer.sh;
 		exit;;
-	1) echo "SingleContainer" > setup.txt
+	1) echo "SingleContainerLocal" > setup.txt
 		/bin/bash util/setupSingleContainer.sh;
 		exit;;
 	2) echo "DistributedSimulation" > setup.txt
