@@ -18,8 +18,8 @@ System capable to run docker containers and a GPU to support CARLA.
 
 In the setup.sh script, you can choose to either download or build **SCS** (Single Container Simulation) or build **DS** (Distributed Simulation).\
 It is recommended to start with the download of **SCS** since the first build of **SCS** takes up to one hour.
-Only move to a distributed simulation if neccessary, like the integration of a Windows only FMU into the simulation.\
-Your selection is stored in setup.txt and can be changed by calling setup.sh again.\
+Only move to a distributed simulation if neccessary. The distributed simulation starts OSTAR component in separate docker containers.
+This is useful, if models only work in custom environments.
 
 ```sh
 git clone https://github.com/DLR-TS/OSTAR-Quickstart.git
@@ -31,19 +31,20 @@ chmod +x *.sh
 ## Run
 
 To run the simulation choose between the provided examples.
-You can select the scenarios interactively or by parameter.
+You can select the scenarios interactively or as a path by parameter.
 
 ```sh
 ./run.sh --visual
 ```
 
 Available runtime parameter are:\
-**[scenario directory]**\
+**[scenario directory]** directory with scenario files\
 **[image]** optional image selection\
 **[--visual]** to open CARLA window\
-**[--verbose]** to enable verbose logs\
+**[--verbose]** to enable verbose logs
 
 The simulation runs the scenario and will generate [OSI](https://www.asam.net/standards/detail/osi) trace files in a new output directory.
+Images are stored in a separate directory.
 
 # Further information
 
