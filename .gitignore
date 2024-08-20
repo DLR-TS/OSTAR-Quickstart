@@ -4,6 +4,5 @@ models/*.fmu
 models/sl-1-*
 input
 output
-setup.txt
-examples/07-sumo/tripinfo.xml
+examples/08-sumo/tripinfo.xml
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-08-13 13:11:19 by Eclipse SUMO libsumo Version v1_20_0+1573-b401420b1a1
+<libsumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/libsumoConfiguration.xsd">
+
+    <input>
+        <net-file value="/home/carla/input/sumoexample.net.xml"/>
+        <route-files value="/home/carla/input/sumoexample.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="/home/carla/input/tripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="80"/>
+    </time>
+
+</libsumoConfiguration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="flow3.0" depart="0.00" departLane="183349851#2_0" departPos="4.40" departSpeed="0.00" departDelay="0.00" arrival="41.00" arrivalLane="-183349848_0" arrivalPos="303.23" arrivalSpeed="13.83" duration="41.00" routeLength="476.36" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="6.42" rerouteNo="0" devices="tripinfo_flow3.0" vType="Car4" speedFactor="1.00" vaporized=""/>
+    <tripinfo id="flow4.0" depart="0.00" departLane="183349848_0" departPos="3.80" departSpeed="0.00" departDelay="0.00" arrival="46.00" arrivalLane="-183349851#0_0" arrivalPos="160.08" arrivalSpeed="12.31" duration="46.00" routeLength="491.32" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="5.66" rerouteNo="0" devices="tripinfo_flow4.0" vType="Car7" speedFactor="0.89" vaporized=""/>
+    <tripinfo id="flow3.1" depart="10.00" departLane="183349851#2_0" departPos="4.20" departSpeed="0.00" departDelay="0.00" arrival="49.00" arrivalLane="-183349848_0" arrivalPos="303.23" arrivalSpeed="15.15" duration="39.00" routeLength="476.56" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="7.08" rerouteNo="0" devices="tripinfo_flow3.1" vType="Car5" speedFactor="1.09" vaporized=""/>
+    <tripinfo id="flow4.1" depart="10.00" departLane="183349848_0" departPos="4.40" departSpeed="0.00" departDelay="0.00" arrival="55.00" arrivalLane="-183349851#0_0" arrivalPos="160.08" arrivalSpeed="12.82" duration="45.00" routeLength="490.72" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="5.92" rerouteNo="0" devices="tripinfo_flow4.1" vType="Car4" speedFactor="0.92" vaporized=""/>
+    <tripinfo id="flow1.0" depart="0.00" departLane="-183349849_0" departPos="4.00" departSpeed="0.00" departDelay="0.00" arrival="63.00" arrivalLane="-183349852_0" arrivalPos="127.25" arrivalSpeed="11.66" duration="63.00" routeLength="462.48" waitingTime="10.00" waitingCount="1" stopTime="0.00" timeLoss="22.38" rerouteNo="0" devices="tripinfo_flow1.0" vType="Car6" speedFactor="0.84" vaporized=""/>
+    <tripinfo id="flow3.2" depart="20.00" departLane="183349851#2_0" departPos="5.20" departSpeed="0.00" departDelay="0.00" arrival="64.00" arrivalLane="-183349848_0" arrivalPos="303.23" arrivalSpeed="12.51" duration="44.00" routeLength="475.56" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="5.76" rerouteNo="0" devices="tripinfo_flow3.2" vType="Car0" speedFactor="0.90" vaporized=""/>
+    <tripinfo id="flow1.1" depart="10.00" departLane="-183349849_0" departPos="10.10" departSpeed="0.00" departDelay="0.00" arrival="65.00" arrivalLane="-183349852_0" arrivalPos="127.25" arrivalSpeed="14.07" duration="55.00" routeLength="456.38" waitingTime="4.00" waitingCount="1" stopTime="0.00" timeLoss="21.86" rerouteNo="0" devices="tripinfo_flow1.1" vType="Truck0" speedFactor="1.01" vaporized=""/>
+    <tripinfo id="flow1.2" depart="20.00" departLane="-183349849_0" departPos="5.20" departSpeed="0.00" departDelay="0.00" arrival="67.00" arrivalLane="-183349852_0" arrivalPos="127.25" arrivalSpeed="15.60" duration="47.00" routeLength="461.28" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="16.52" rerouteNo="0" devices="tripinfo_flow1.2" vType="Car0" speedFactor="1.12" vaporized=""/>
+    <tripinfo id="1337" depart="10.00" departLane="183349852_0" departPos="4.10" departSpeed="0.00" departDelay="0.00" arrival="77.00" arrivalLane="-183349851#0_0" arrivalPos="160.08" arrivalSpeed="14.03" duration="67.00" routeLength="303.61" waitingTime="22.00" waitingCount="2" stopTime="0.00" timeLoss="44.30" rerouteNo="0" devices="tripinfo_1337" vType="CarEgo" speedFactor="1.01" vaporized=""/>
+    <tripinfo id="flow2.0" depart="0.00" departLane="183349852_0" departPos="4.00" departSpeed="0.00" departDelay="0.00" arrival="80.00" arrivalLane="183349849_0" arrivalPos="326.89" arrivalSpeed="11.54" duration="80.00" routeLength="471.77" waitingTime="27.00" waitingCount="1" stopTime="0.00" timeLoss="38.55" rerouteNo="0" devices="tripinfo_flow2.0" vType="Car6" speedFactor="0.83" vaporized=""/>
+    <tripinfo id="flow2.1" depart="30.00" departLane="183349852_0" departPos="5.20" departSpeed="0.00" departDelay="0.00" arrival="89.00" arrivalLane="183349849_0" arrivalPos="326.89" arrivalSpeed="14.47" duration="59.00" routeLength="470.57" waitingTime="5.00" waitingCount="1" stopTime="0.00" timeLoss="26.21" rerouteNo="0" devices="tripinfo_flow2.1" vType="Car0" speedFactor="1.04" vaporized=""/>
+    <tripinfo id="flow4.2" depart="20.00" departLane="183349848_0" departPos="3.60" departSpeed="0.00" departDelay="0.00" arrival="109.00" arrivalLane="-183349851#0_0" arrivalPos="160.08" arrivalSpeed="12.87" duration="89.00" routeLength="491.52" waitingTime="38.00" waitingCount="1" stopTime="0.00" timeLoss="50.83" rerouteNo="0" devices="tripinfo_flow4.2" vType="Car8" speedFactor="0.93" vaporized=""/>

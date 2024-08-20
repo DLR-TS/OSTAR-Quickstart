@@ -37,10 +37,11 @@ You can select the scenarios interactively or by parameter.
 ./run.sh --visual
 ```
 
-Available runtimeparameter are:\
-**--visual** to open CARLA window\
-**--verbose** to enable verbose logs\
-**<0-7>** to select a predefined scenario by index\
+Available runtime parameter are:\
+**[scenario directory]**\
+**[image]** optional image selection\
+**[--visual]** to open CARLA window\
+**[--verbose]** to enable verbose logs\
 
 The simulation runs the scenario and will generate [OSI](https://www.asam.net/standards/detail/osi) trace files in a new output directory.
 

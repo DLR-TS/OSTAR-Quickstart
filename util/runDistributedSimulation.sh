@@ -29,7 +29,7 @@ sleep 2
 config_abs_path=$(realpath .)
 
 #Option: The model volume can also be mounted by the OSMPServices
-docker run -d --network host -v $config_abs_path/scenario:/ostar -v $config_abs_path/models:/models --name ostar_cosima ostar:cosima-18 ./CoSimulationManager -v ostar/configDistributedSimulation.yml
+docker run -d --network host -v $config_abs_path/examples/08-distributed:/ostar -v $config_abs_path/models/fmu:/models --name ostar_cosima ostar:cosima-18 ./CoSimulationManager -v ostar/configDistributedSimulation.yml
 
 #Run simulation as a test for 30 seconds.
 sleep 30
