@@ -1,0 +1,9 @@
+<configuration>
+    <input>
+        <net-file value="OSTAR_Example.net.xml"/>
+        <route-files value="OSTAR_Example.rou.xml"/>
+    </input>
+    <time>
+        <step-length value="1.0"/>
+    </time>
+</configuration>

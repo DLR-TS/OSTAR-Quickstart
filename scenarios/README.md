@@ -1,5 +1,22 @@
 # Examples
 
+Each OSTAR scenario uses an scenario directory for all configuration files.
+
+- .yml (mandatory CoSiMa configuration)
+- .fmu (optional FMU models)
+- .xodr (optional OpenDRIVE)
+- .xosc (optional OpenSCENARIO)
+- .tar.gz (optional UE 3D map)
+- .csv (optional Replay file)
+- .sumoconf etc. (optional SUMO configuration)
+- distributed.txt (optional marks a distributed simulation for run.sh)
+
+All files are copied together with the [openMSL](https://github.com/openMSL) FMUs models from OSTAR-Quickstart/models/fmu to OSTAR-Quickstart/input.
+The docker container mounts this combined input directory.
+
+The examples are a showcase of different setups.
+They are a good starting point for your own simulation.
+
 ## 01 OpenDRIVE & OpenSCENARIO
 
 Example for an OpenSCENARIO on an OpenDRIVE map.
@@ -48,7 +65,7 @@ OSMP-Service currently only has a spcific behavior for camera images in the sens
 Replays trajectories of one ego vehicle and three other vehicles.
 OSTAR creates and configures a radar sensor based on a given FMU, like the [openMSL model](https://github.com/openMSL/sl-1-1-reflection-based-radar-object-model) on the ego vehicle.
 Camera and Lidar sensors work similar to this example.
-To get the sensors spawned by the FMU itself you need to use OSMPSensorView[x] to get the corresponding sensor input.
+To get the sensors spawned by the FMU itself you need to use OSMPSensorView\[x\] to get the corresponding sensor input.
 
 ## 08 SUMO integration
 
@@ -70,4 +87,13 @@ configDistributedSimulation.yml is loaded by CoSiMa and contains the configurati
 A CARLA simulation must be running with a vehicle called **hero**.
 This vehicle will get additional sensors by OSTAR.
 It is also possible to run OSMP-Services in differen environments like Windows to integrate FMUs build only for Windows.
+
+## 10 3D map import
+
+Use your own 3D Map.
+Follow the [CARLA Tutorial](https://carla.readthedocs.io/en/0.9.13/tuto_M_add_map_package/) to prepare and compile the \<map\>.tar.gz.
+Make sure to keep the map name always the same as in the **OSTAR_Example**.tar.gz:\
+CarlaUE4/Content/**OSTAR_Example**/Maps/**OSTAR_Example**/**OSTAR_Example**.umap\
+The example contains a 5 km long straight road designed with [Trian3DBuilder](https://trian3dbuilder.de/) and exported as fbx.
+A car drives with [SUMO](https://eclipse.dev/sumo/) from one end to the other and has a camera attached on the left side.
 

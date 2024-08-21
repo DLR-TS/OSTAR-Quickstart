@@ -26,5 +26,5 @@ fi
 
 docker run --privileged --net=host --gpus all --name $CONTAINER_NAME -e DISPLAY=$DISPLAY -it --mount type=bind,source="$input_abs_path",target=/home/carla/input --mount type=bind,source="$output_abs_path",target=/home/carla/output $IMAGE_TAG $@
 
-echo "Done. See simulation output in output directory"
+echo "Done. See simulation output in $output_abs_path"
 
