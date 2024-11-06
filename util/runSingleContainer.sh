@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT_DATE=$(date +"%Y-%m-%d %H:%M:%S")
+OUTPUT_DATE=$(date +"%Y-%m-%d_%H:%M:%S")
 CONTAINER_NAME="ostar-single-container"
 SCENARIO_PATH=$1
 SCENARIO_NAME=$(basename $SCENARIO_PATH)
