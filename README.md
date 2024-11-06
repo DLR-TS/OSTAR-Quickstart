@@ -13,6 +13,10 @@ OSTAR also supports [SUMO](https://eclipse.dev/sumo/) to generate traffic scenar
 ## Requirements
 
 System capable to run docker containers and a GPU to support CARLA.
+Download Git Large File Storage (LFS) for example scenarios with custom maps.
+```sh
+apt install git git-lfs
+```
 
 ## Installation
 

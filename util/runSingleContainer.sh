@@ -13,7 +13,7 @@ input_abs_path=$(realpath input)
 echo "Copy FMU models into input directory."
 cp models/fmu/*.fmu input/
 echo "Copy scenario files into input directory."
-cp $SCENARIO_PATH/* input/
+cp -r $SCENARIO_PATH/* input/
 
 echo "Create output directory output/$SCENARIO_NAME-$OUTPUT_DATE"
 mkdir -p "output/$SCENARIO_NAME-$OUTPUT_DATE"
