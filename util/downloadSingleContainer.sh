@@ -2,5 +2,5 @@
 
 echo "Download OSTAR from dockerhub"
 
-docker pull bjoernbahndlr/ostar:1.1
+docker pull bjoernbahndlr/ostar:2.0
 

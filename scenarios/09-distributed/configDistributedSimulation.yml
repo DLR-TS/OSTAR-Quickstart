@@ -7,7 +7,8 @@
   transaction_timeout: 1000
   do_step_timeout: 1000
   initialisation_timeout: 10000
-  additional_parameters: "-ego hero --resumeafter 5"
+  additional_parameters: "-ego hero --resumeafter 5 --logfile /logs/log.csv"
+  sensor_view_config:
   - base_name: Sensor1
     parent_name: hero # or world for a static sensor
     sensor_type: camera

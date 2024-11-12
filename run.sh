@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#Parameter: ./run.sh examples/00-opendrive-openscneario <specific docker tag> <--visual, --verbose>
+#Parameter: ./run.sh scenarios/00-opendrive-opensceneario <specific docker tag> <--visual, --verbose>
 
 IMAGE_LOCAL="ostar:single_container"
-IMAGE_DOCKER="bjoernbahndlr/ostar:1.1"
+IMAGE_DOCKER="bjoernbahndlr/ostar:2.0"
 IMAGE_TAG=""
 DISTRIBUTED_SIMULATION=false
 DISTRIBUTED_SIMULATION_FLAG_FILE=distributed.txt
-SCNEARIO_PATH=""
+SCENARIO_PATH=""
 
 if [[ -z "$1" || "$1" == --* ]]; then
   dirs=(scenarios/*/)
@@ -19,14 +19,14 @@ if [[ -z "$1" || "$1" == --* ]]; then
     fi
   done
 else
-  SCNEARIO_PATH=$1
+  SCENARIO_PATH=$1
 fi
 
 echo "Scenario path: $SCENARIO_PATH"
 
 if [ -e $SCENARIO_PATH/$DISTRIBUTED_SIMULATION_FLAG_FILE ]; then
   DISTRIBUTED_SIMULATION=true
-  echo "Run distributed simulation mode. Make sure to setup this setup beforehand."
+  echo "Run distributed simulation mode. Make sure to setup and start Carla beforehand."
   /bin/bash util/runDistributedSimulation.sh $@
   echo "OSTAR Simulation complete!"
   exit
