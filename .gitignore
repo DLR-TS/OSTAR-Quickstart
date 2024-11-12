@@ -1,8 +1,5 @@
 OSTAR/*
 !OSTAR/README.md
-models/*.fmu
 models/sl-1-*
 input
 output
-examples/08-sumo/tripinfo.xml
-
