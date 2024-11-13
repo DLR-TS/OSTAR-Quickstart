@@ -6,11 +6,7 @@ The configuration is done via [YAML configuration file](https://github.com/DLR-T
 [Current support for each OSI message](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/docu/OSI_Field_Implementation.md)
 OSTAR supports OSI 3.7.0 and FMI 2.0.
 
-<<<<<<< HEAD
 Runnable examples are [here](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/scenarios).
-=======
-Runnable examples are [here](https://github.com/DLR-TS/OSTAR-Quickstart/tree/main/examples).
->>>>>>> main
 
 To configure your own scenario start with altering any example.
 
