@@ -9,7 +9,7 @@ USER root
 RUN rm /etc/apt/sources.list.d/cuda.list && rm /etc/apt/sources.list.d/nvidia-ml.list \
  && apt-get update && apt-get install --no-install-recommends -y libpng16-16=1.6.34-1ubuntu0.18.04.2 \
  libtiff5 libjpeg8=8c-2ubuntu8 build-essential=12.4ubuntu1 wget=1.19.4-1ubuntu2.2 git \
- python3.6 python3.6-dev python3-pip libxerces-c-dev libprotobuf10 \
+ python3.6 python3.6-dev python3-pip libxerces-c-dev libprotobuf10 fontconfig \
  && rm -rf /var/lib/apt/lists/* 
 
 # Install python requirements

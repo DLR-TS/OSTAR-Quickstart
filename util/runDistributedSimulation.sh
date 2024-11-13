@@ -19,9 +19,9 @@ if docker ps -a | grep "ostar_cosima"; then
 	docker rm ostar_cosima || true
 fi
 
-docker run -d --network host --name ostar_carla_osi_service ostar:carla-osi-service-18 /carlaosiservice/build/bin/CARLA_OSI_Service -resumeAfter 5 -log /logs/log.csv &&
-docker run -d -p 51426:51425 --name ostar_osmpservice-18 ostar:osmpservice OSMPService
-docker run -d -p 51427:51425 --name ostar_osmpservice-18 ostar:osmpservice OSMPService
+docker run -d --network host --name ostar_carla_osi_service ostar:carla-osi-service-18 /CARLA_OSI_Service &&
+docker run -d -p 51426:51425 --name ostar_osmpservice_1 ostar:osmpservice-18 OSMPService
+docker run -d -p 51427:51425 --name ostar_osmpservice_2 ostar:osmpservice-18 OSMPService
 
 #Wait for all services to start
 sleep 2
@@ -29,7 +29,7 @@ sleep 2
 config_abs_path=$(realpath .)
 
 #Option: The model volume can also be mounted by the OSMPServices
-docker run -d --network host -v $config_abs_path/scenario:/ostar -v $config_abs_path/models:/models --name ostar_cosima ostar:cosima-18 ./CoSimulationManager -v ostar/configDistributedSimulation.yml
+docker run -d --network host -v $config_abs_path/scenarios/09-distributed:/ostar -v $config_abs_path/models/fmu:/models --name ostar_cosima ostar:cosima-18 ./CoSimulationManager -v ostar/configDistributedSimulation.yml
 
 #Run simulation as a test for 30 seconds.
 sleep 30

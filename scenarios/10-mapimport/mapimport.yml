@@ -1,0 +1,35 @@
+- simulator: CARLA
+  carla_host: localhost
+  carla_port: 2000
+  autostart: true
+  delta: 1.0
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
+  additional_parameters: "-ego 1337 -replay -replayMapOffsets 115 0 -replaySpawnHeight 0.1 --resumeafter 5"
+  sensor_view_config:
+  - base_name: OSMPSensor1
+    parent_name: 1337 # needs to be a number for mapping reasons with OSI message types!
+    sensor_type: camera
+    sensor_mounting_position:
+      x: 0
+      y: 1.75
+      z: 1.2
+      roll: 0
+      pitch: 0
+      yaw: 0
+    number_of_pixels_horizontal: 1280
+    number_of_pixels_vertical: 720
+    field_of_view_horizontal: 90
+- simulator: SUMO
+  model: OSTAR_Example.sumocfg
+  output:
+    - {interface_name: "OSMPTrafficUpdate", base_name: "OSMPTrafficUpdate"}
+- simulator: OSMP
+  model: "" #If model is not a fmu, OSMP Service will read the file, depending on the configured output.
+  autostart: true
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  input:
+    - {interface_name: "OSMPSensorViewCamera", base_name: OSMPSensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
+    - {interface_name: "OSMPSensorView", base_name: OSMPSensorViewGroundTruth}

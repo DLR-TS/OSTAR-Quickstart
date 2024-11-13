@@ -38,14 +38,11 @@ else
 fi
 
 case $answer in
-	0) echo "SingleContainerDockerhub" > setup.txt
-		/bin/bash util/downloadSingleContainer.sh;
+	0) /bin/bash util/downloadSingleContainer.sh;
 		exit;;
-	1) echo "SingleContainerLocal" > setup.txt
-		/bin/bash util/setupSingleContainer.sh;
+	1) /bin/bash util/setupSingleContainer.sh;
 		exit;;
-	2) echo "DistributedSimulation" > setup.txt
-		/bin/bash util/setupDistributedSimulation.sh;
+	2) /bin/bash util/setupDistributedSimulation.sh;
 		exit;;
 	h) echo "The single container simulation combines all OSTAR components, all openMSL models, a customized version of the CARLA scenario runner together with CARLA."
 		echo ""

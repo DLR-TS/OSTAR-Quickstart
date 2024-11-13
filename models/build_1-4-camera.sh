@@ -32,7 +32,7 @@ else
   popd >/dev/null
   
   docker create --name temp_model ostar:${OSMPMODEL_DIR}
-  docker cp temp_model:/model/cmake-build/${OSMPMODEL_NAME_INTERN} ${OSMPMODEL_NAME}
+  docker cp temp_model:/model/cmake-build/${OSMPMODEL_NAME_INTERN} fmu/${OSMPMODEL_NAME}
   docker rm -f temp_model
 
 fi

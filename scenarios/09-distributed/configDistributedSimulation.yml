@@ -1,0 +1,46 @@
+- simulator: CARLA
+  carla_host: localhost # or <IP of Carla instance>
+  carla_port: 2000
+  client_host: localhost
+  client_port: 51425
+  delta: 0.03
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
+  additional_parameters: "-ego hero --resumeafter 5 --logfile /logs/log.csv"
+  sensor_view_config:
+  - base_name: Sensor1
+    parent_name: hero # or world for a static sensor
+    sensor_type: camera
+    sensor_mounting_position:
+      x: -5
+      y: 0
+      z: 2
+      roll: 0
+      pitch: 0
+      yaw: 0
+    number_of_pixels_horizontal: 1280
+    number_of_pixels_vertical: 720
+    field_of_view_horizontal: 90
+- simulator: OSMP #OSMP-Service
+  model: /models/ObjectBasedGenericPerceptionObjectModel.fmu
+  autostart: true
+  host: localhost
+  port: 51426
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  input:
+      - {interface_name: OSMPSensorView, base_name: OSMPSensorViewGroundTruth}
+  output:
+      - {interface_name: "OSMPSensorData", base_name: OSMPSensorData}
+- simulator: OSMP #OSMP-Service
+  autostart: true
+  model: ""
+  host: localhost
+  port: 51427
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  input:
+    - {interface_name: "OSMPSensorViewCamera", base_name: Sensor1} # Sensor1 sensorview contains camera data. Each image is saved with its timestamp and given interface_name.
+    - {interface_name: OSMPSensorData, base_name: OSMPSensorData}
+

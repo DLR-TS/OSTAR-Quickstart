@@ -1,5 +1,7 @@
 # Quickstart for OSTAR
 
+[![DLR-TS](https://img.shields.io/badge/developed%20by-DLR%20TS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://www.dlr.de/en/ts/about-us/the-institute-of-transportation-systems)
+
 OSTAR is a set of software tools for automotive simulation.
 OSTAR enables a simulation where vehicles in CARLA are controlled by external models.
 Theses models are packaged with FMI and use OSI messages for communication.
@@ -13,13 +15,17 @@ OSTAR also supports [SUMO](https://eclipse.dev/sumo/) to generate traffic scenar
 ## Requirements
 
 System capable to run docker containers and a GPU to support CARLA.
+Download Git Large File Storage (LFS) for example scenarios with custom maps.
+```sh
+apt install git git-lfs
+```
 
 ## Installation
 
 In the setup.sh script, you can choose to either download or build **SCS** (Single Container Simulation) or build **DS** (Distributed Simulation).\
 It is recommended to start with the download of **SCS** since the first build of **SCS** takes up to one hour.
-Only move to a distributed simulation if neccessary, like the integration of a Windows only FMU into the simulation.\
-Your selection is stored in setup.txt and can be changed by calling setup.sh again.\
+Only move to a distributed simulation if neccessary. The distributed simulation starts OSTAR component in separate docker containers.
+This is useful, if models only work in custom environments.
 
 ```sh
 git clone https://github.com/DLR-TS/OSTAR-Quickstart.git
@@ -31,18 +37,20 @@ chmod +x *.sh
 ## Run
 
 To run the simulation choose between the provided examples.
-You can select the scenarios interactively or by parameter.
+You can select the scenarios interactively or as a path by parameter.
 
 ```sh
 ./run.sh --visual
 ```
 
-Available runtimeparameter are:\
-**--visual** to open CARLA window\
-**--verbose** to enable verbose logs\
-**<0-7>** to select a predefined scenario by index\
+Available runtime parameter are:\
+**[scenario directory]** directory with scenario files\
+**[image]** optional image selection\
+**[--visual]** to open CARLA window\
+**[--verbose]** to enable verbose logs
 
 The simulation runs the scenario and will generate [OSI](https://www.asam.net/standards/detail/osi) trace files in a new output directory.
+Images are stored in a separate directory.
 
 # Further information
 
