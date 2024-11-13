@@ -32,6 +32,17 @@ if [ -e $SCENARIO_PATH/$DISTRIBUTED_SIMULATION_FLAG_FILE ]; then
   exit
 fi
 
+#Check if map not correctly downloaded via git-lfs (e.g. scenario 10)
+if [ -e $SCENARIO_PATH/*tar.gz ]; then
+  FILE_SIZE_MAP=$(stat -c%s $SCENARIO_PATH/*.tar.gz)
+  if [ $FILE_SIZE_MAP -lt 1024 ]; then
+    echo ".tar.gz files are interpreted as precompiled maps for Carla."
+    echo "The input directory contains a $FILE_SIZE_MAP bytes small .tar.gz file. It may be a git-lfs reference to a map file."
+    echo "Please install git-lfs before cloning/checkout or remove unnessesary .tar.gz files from the scenario directory."
+    exit
+  fi
+fi
+
 if [[ ! -z "$2" && ! "$2" == --* ]]; then
   IMAGE_TAG="$2"
 elif docker image inspect $IMAGE_LOCAL >/dev/null 2>&1; then
