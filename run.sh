@@ -46,4 +46,3 @@ echo "Running with image $IMAGE_TAG"
 echo "OSTAR Simulation complete!"
 echo "Check the output directory to see results."
 
-
