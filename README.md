@@ -2,7 +2,7 @@
 
 [![DLR-TS](https://img.shields.io/badge/developed%20by-DLR%20TS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://www.dlr.de/en/ts/about-us/the-institute-of-transportation-systems)
 
-OSTAR is a set of software tools for automotive simulation.
+The scientific project OSTAR is a set of software tools for automotive simulation.
 OSTAR enables a simulation where vehicles in CARLA are controlled by external models.
 Theses models are packaged with FMI and use OSI messages for communication.
 The integration of theses models to CARLA is given by the GroundTruth, SensorView and TrafficUpdate messages.
