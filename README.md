@@ -48,6 +48,7 @@ Available runtime parameter are:\
 **[image]** optional image selection\
 **[--visual]** to open CARLA window\
 **[--verbose]** to enable verbose logs
+**[--externalcarla]** inhibit start of internal carla
 
 The simulation runs the scenario and will generate [OSI](https://www.asam.net/standards/detail/osi) trace files in a new output directory.
 Images are stored in a separate directory.

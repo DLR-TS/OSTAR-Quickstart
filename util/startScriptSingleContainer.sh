@@ -6,6 +6,7 @@ YAML_FILE=$(find /home/carla/input/ -type f -name "*.yml" | head -n 1)
 MAP3D_FILE=$(find /home/carla/input/ -type f -name "*.tar.gz" | head -n 1)
 VISUAL=false
 VERBOSE=false
+EXTERNALCARLA=false
 
 while [[ "$#" -gt 0 ]]; do
   if [[ $1 = "--verbose" ]]; then
@@ -14,10 +15,13 @@ while [[ "$#" -gt 0 ]]; do
   if [[ $1 = "--visual" ]]; then
     VISUAL=true
   fi
+  if [[ $1 = "--externalcarla" ]]; then
+    EXTERNALCARLA=true
+  fi
   shift
 done
 
-echo "XODR_FILE: $XODR_FILE XOSC_FILE: $XOSC_FILE MAP3D_FILE: $MAP3D_FILE YAML_FILE: $YAML_FILE VISUAL: $VISUAL VERBOSE: $VERBOSE"
+echo "XODR_FILE: $XODR_FILE XOSC_FILE: $XOSC_FILE MAP3D_FILE: $MAP3D_FILE YAML_FILE: $YAML_FILE VISUAL: $VISUAL VERBOSE: $VERBOSE EXTERNALCARLA: $EXTERNALCARLA"
 
 #Import 3D Map
 if [ -f "$MAP3D_FILE" ]; then
@@ -27,20 +31,21 @@ if [ -f "$MAP3D_FILE" ]; then
 fi
 
 #Start CARLA
-if $VISUAL; then
-  ./CarlaUE4.sh -nosound &
-else
-  ./CarlaUE4.sh -nosound -RenderOffScreen &
+if ! [[ $EXTERNALCARLA ]]; then
+  if $VISUAL; then
+    ./CarlaUE4.sh -nosound &
+  else
+    ./CarlaUE4.sh -nosound -RenderOffScreen &
+  fi
+  echo "Starting Carla takes a while... Script will continue in 30 seconds"
+  sleep 30s #30 seconds is the safer option, 15 seconds works most of the time
 fi
 
-echo "Starting Carla takes a while... Script will continue in 30 seconds"
-sleep 30s #30 seconds is the safer option, 15 seconds works most of the time
-
 #Load map
-if [ -f "$MAP3D_FILE" ]; then
+if [[ -f "$MAP3D_FILE" ]]; then
   MAP_NAME=$(basename ${MAP3D_FILE%.tar.gz})
   python3 PythonAPI/util/config.py -m /Game/$MAP_NAME/Maps/$MAP_NAME/$MAP_NAME
-elif [ -f "$XODR_FILE" ]; then
+elif [[ -f "$XODR_FILE" ]]; then
   echo "Load openDRIVE file: $XODR_FILE"
   python3 PythonAPI/util/config.py -x $XODR_FILE
 fi
