@@ -32,6 +32,8 @@ git clone https://github.com/DLR-TS/OSTAR-Quickstart.git
 cd OSTAR-Quickstart
 chmod +x *.sh
 ./setup.sh --docker
+# For **Synergies** small container choose option 3 to build container
+./setup.sh
 ```
 
 ## Run
@@ -41,13 +43,17 @@ You can select the scenarios interactively or as a path by parameter.
 
 ```sh
 ./run.sh --visual
+# For **Synergies** run this command to run without built-in Carla
+./run.sh --externalcarla
+# For **Synergies** run this command to run with smaller container
+./run.sh ostar:synergies_container --externalcarla
 ```
 
 Available runtime parameter are:\
 **[scenario directory]** directory with scenario files\
 **[image]** optional image selection\
 **[--visual]** to open CARLA window\
-**[--verbose]** to enable verbose logs
+**[--verbose]** to enable verbose logs\
 **[--externalcarla]** inhibit start of internal carla
 
 The simulation runs the scenario and will generate [OSI](https://www.asam.net/standards/detail/osi) trace files in a new output directory.

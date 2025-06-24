@@ -1,0 +1,19 @@
+FROM ostar:cosima-18 as cosima
+FROM ostar:osmpservice-18 as osmpservice
+FROM ostar:carla-osi-service-18 as carla-osi-service
+FROM ubuntu:18.04
+LABEL maintainer="bjoern.bahn@dlr.de"
+
+RUN apt-get update && apt-get install --no-install-recommends -y libpng16-16=1.6.34-1ubuntu0.18.04.2 \
+ libtiff5 libjpeg8=8c-2ubuntu8 libxerces-c-dev libprotobuf10 fontconfig \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY --from=cosima CoSimulationManager .
+COPY --from=cosima /usr/lib/libsumocpp.so /usr/lib/
+COPY --from=osmpservice OSMPService .
+COPY --from=carla-osi-service CARLA_OSI_Service .
+COPY --from=carla-osi-service /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.80.0 /usr/lib/x86_64-linux-gnu/
+COPY --chmod=0755 util/startScriptSingleContainer.sh startScriptSingleContainer.sh
+
+ENTRYPOINT ["/startScriptSingleContainer.sh"]
+CMD [""]

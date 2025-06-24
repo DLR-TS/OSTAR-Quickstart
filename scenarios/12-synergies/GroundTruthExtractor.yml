@@ -1,0 +1,16 @@
+- simulator: CARLA
+  carla_host: <change_this_to_your_IP>
+  carla_port: 2000
+  autostart: true
+  delta: 0.01
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  initialisation_timeout: 10000
+  additional_parameters: "-replayMapOffsets 0 0 -replaySpawnHeight 0.1 --resumeafter 5"
+- simulator: OSMP
+  model: ""
+  autostart: true
+  transaction_timeout: 1000
+  do_step_timeout: 1000
+  input:
+    - {interface_name: "OSMPGroundTruth", base_name: OSMPGroundTruth}

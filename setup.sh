@@ -32,9 +32,10 @@ else
 	echo "0: Download Single Container"
 	echo "1: Build Single Container"
 	echo "2: Build Distributed Container Simulation"
+	echo "3: Build small Container for Synergies"
 	echo ""
-	echo "Enter 0 to 2 to continue the setup, h for more info, e for exit"
-	read -p "(0/1/2/h/e) " answer
+	echo "Enter 0 to 3 to continue the setup, h for more info, e for exit"
+	read -p "(0/1/2/3/h/e) " answer
 fi
 
 case $answer in
@@ -43,6 +44,8 @@ case $answer in
 	1) /bin/bash util/setupSingleContainer.sh;
 		exit;;
 	2) /bin/bash util/setupDistributedSimulation.sh;
+		exit;;
+	3) /bin/bash util/setupSynergiesContainer.sh;
 		exit;;
 	h) echo "The single container simulation combines all OSTAR components, all openMSL models, a customized version of the CARLA scenario runner together with CARLA."
 		echo ""
