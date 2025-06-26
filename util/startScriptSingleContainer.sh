@@ -31,7 +31,7 @@ if [ -f "$MAP3D_FILE" ]; then
 fi
 
 #Start CARLA
-if ! [[ $EXTERNALCARLA ]]; then
+if [[ $EXTERNALCARLA != "true" ]]; then
   if $VISUAL; then
     ./CarlaUE4.sh -nosound &
   else
